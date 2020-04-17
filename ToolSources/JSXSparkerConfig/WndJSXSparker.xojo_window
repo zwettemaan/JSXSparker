@@ -923,7 +923,7 @@ End
 		      
 		      // This code is not in the repository. It registers the MonkeyBread plugins
 		      // Comment this out to run a debug session in Xojo, or add your own license code
-		      CRegisterMBS.Register
+		      RegisterMBS.Register
 		      
 		      Dim appFolder as FolderItem
 		      appFolder = GetFolderItem("")
