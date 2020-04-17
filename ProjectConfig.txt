@@ -14,7 +14,11 @@ HELP_ENABLE_LOG_ENTRY_EXIT="Add verbose tracing code for entry/exit into methods
 
 TARGET_APP="InDesign"
 HELP_TARGET_APP="The target Adobe application. See setTarget command file for 'Any' defaults."
-SELECT_TARGET_APP="Any,InDesign,Illustrator,InCopy,Photoshop,Premiere Pro,After Effects,Dreamweaver,Prelude,Audition,Bridge"
+# For now, I've only tested InDesign and Illustrator. 
+SELECT_TARGET_APP="Any,InDesign,Illustrator"
+
+# Complete list, most still 'to do'
+# SELECT_TARGET_APP="Any,InDesign,Illustrator,InCopy,Photoshop,Premiere Pro,After Effects,Dreamweaver,Prelude,Audition,Bridge"
 
 TARGET_APP_CPU_WORD_SIZE="64"
 HELP_TARGET_APP_CPU_WORD_SIZE="CPU word size. Nearly always 64 bit."
