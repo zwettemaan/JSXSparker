@@ -1,0 +1,44 @@
+@ECHO OFF
+REM
+REM Set up a bunch of environment variables
+REM
+
+IF "%JSXP_COMMANDS_DIR%" == "" (
+    SET JSXP_COMMANDS_DIR=%~dp0
+)
+
+PUSHD "%JSXP_COMMANDS_DIR%.."
+SET PROJECT_ROOT_DIR=%cd%\
+POPD
+
+SET BUILD_SETTINGS_DIR=%PROJECT_ROOT_DIR%BuildSettings\
+SET BUILD_DIR=%PROJECT_ROOT_DIR%build\
+
+IF NOT EXIST "%BUILD_SETTINGS_DIR%buildSettings.bat" (
+    ECHO.
+    ECHO Error: This JSXSparker folder has not been initialized. Make
+    ECHO sure to run the JSXSparkerConfig.exe command first. Aborting.
+    ECHO.
+    EXIT /B
+) 
+
+CALL "%BUILD_SETTINGS_DIR%buildSettings.bat"
+
+SET TARGET_SCRIPT_ROOT_DIR=
+IF "%TARGET_APP_SCRIPT_DIR%" == "" (
+    ECHO Error: empty TARGET_APP_SCRIPT_DIR.
+) ELSE IF "%SCRIPT_DIRNAME%" == "" (
+    ECHO Error: empty SCRIPT_DIRNAME.
+) ELSE (
+    SET TARGET_SCRIPT_ROOT_DIR=%TARGET_APP_SCRIPT_DIR%%SCRIPT_DIRNAME%\
+)
+
+SET BUILD_SCRIPT_ROOT_DIR=
+IF "%BUILD_DIR%" == "" (
+    ECHO Error: empty BUILD_DIR.
+) ELSE IF "%SCRIPT_DIRNAME%" == "" (
+    ECHO Error: empty SCRIPT_DIRNAME.
+) ELSE (
+    SET BUILD_SCRIPT_ROOT_DIR=%BUILD_DIR%%SCRIPT_DIRNAME%\
+)
+

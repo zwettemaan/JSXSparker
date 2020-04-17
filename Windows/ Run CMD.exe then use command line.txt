@@ -1,0 +1,1 @@
+Start a CMD shell, then run all the .bat files from a command line

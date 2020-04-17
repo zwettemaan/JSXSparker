@@ -1,0 +1,45 @@
+#
+# The values below are the default shown when you run the JSXSparkerConfig app
+# This app will read the templates, find the placeholder strings in them, and 
+# will use search-and-replace to create the actual files needed for the project
+#
+
+STARTERCODE="HelloWorld"
+HELP_STARTERCODE="Choose whether some sample code should be added"
+SELECT_STARTERCODE="None,HelloWorld"
+
+ENABLE_LOG_ENTRY_EXIT="OFF"
+SELECT_ENABLE_LOG_ENTRY_EXIT="ON,OFF"
+HELP_ENABLE_LOG_ENTRY_EXIT="Add verbose tracing code for entry/exit into methods to the generated code"
+
+TARGET_APP="InDesign"
+HELP_TARGET_APP="The target Adobe application. See setTarget command file for 'Any' defaults."
+SELECT_TARGET_APP="Any,InDesign,Illustrator,InCopy,Photoshop,Premiere Pro,After Effects,Dreamweaver,Prelude,Audition,Bridge"
+
+TARGET_APP_CPU_WORD_SIZE="64"
+HELP_TARGET_APP_CPU_WORD_SIZE="CPU word size. Nearly always 64 bit."
+SELECT_TARGET_APP_CPU_WORD_SIZE="64,32"
+
+TARGET_CC_VERSION="Any"
+HELP_TARGET_CC_VERSION="The target Creative Cloud version. See setTarget command file for 'Any' defaults."
+SELECT_TARGET_CC_VERSION="Any,2020,CC 2019,CC 2018"
+
+TARGET_CC_LANGUAGE_CODE="en_US"
+HELP_TARGET_CC_LANGUAGE_CODE="The target Creative Cloud language code (needed to find the scripts directory). See setTarget command file for 'Any' defaults."
+SELECT_TARGET_CC_LANGUAGE_CODE="en_US,cs_CZ,da_DK,de_DE,es_ES,es_MX,fi_FI,fr_CA,fr_FR,fr_MA,hu_HU,it_IT,ja_JP,ko_KR,nb_NO,nl_NL,pl_PL,pt_BR,ru_RU,sv_SE,tr_TR,uk_UA,zh_CN,zh_TW"
+
+USE_PERSISTENT_ENGINE="OFF"
+SELECT_USE_PERSISTENT_ENGINE="ON,OFF"
+HELP_USE_PERSISTENT_ENGINE="For InDesign only; ignored for other target apps. Whether to use a persistent or non-persistent engine (i.e. 'main')"
+
+SCRIPT_NAME="JSX Sparker"
+HELP_SCRIPT_NAME="Human readble script name (e.g. for use in documentation)."
+
+SHORTCODE="JSPK"
+HELP_SHORTCODE="Some variable name for global object used to store jsx globals. Helps avoiding variable name clashes."
+
+SCRIPT_DIRNAME=JSXSparker
+HELP_EXTENSION_DIRNAME="This is a subfolder name used to store the script in the user scripts folder, and to store preferences in ~/Library/Preferences or %APPDATA%"
+
+PREFS_FILENAME=JSXSparkerPreferences.json
+HELP_PREFS_FILENAME="This is a file name name to store preferences in the preferences subfolder"

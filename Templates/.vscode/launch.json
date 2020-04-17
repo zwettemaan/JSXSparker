@@ -1,0 +1,22 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "extendscript-debug",
+            "request": "launch",
+            "name": "$$SCRIPT_NAME$$",
+$if "$$TARGET_APP_SPECIFIER$$" != ""
+            "targetSpecifier": "$$TARGET_APP_SPECIFIER$$",
+$endif            
+            "program": "${workspaceFolder}/run.jsx",
+$if "$$TARGET_APP$$" == "InDesign" and "$$USE_PERSISTENT_ENGINE$$" == "ON"
+            "engineName": "$$SHORTCODE$$_Engine",
+$else
+            "engineName": "main",
+$endif            
+            "dontBreakOnErrors": false,
+            "extensionMode": "passive",
+            "stopOnEntry": false
+        }
+    ]
+}
