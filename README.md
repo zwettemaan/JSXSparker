@@ -40,4 +40,4 @@ dependencies:
 - Mac OS X 10.9 or Windows 7.x or higher
 - VSCode with the Adobe ExtendScript Debugger plug-in installed
 
-Make sure to consult the [JSXSparker Documentation](wiki/JSXSparker-Documentation)
+Make sure to consult the [JSXSparker Documentation](https://github.com/zwettemaan/JSXSparker/wiki/JSXSparker-Documentation)
