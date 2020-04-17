@@ -21,7 +21,7 @@ HELP_TARGET_APP_CPU_WORD_SIZE="CPU word size. Nearly always 64 bit."
 SELECT_TARGET_APP_CPU_WORD_SIZE="64,32"
 
 TARGET_CC_VERSION="Any"
-HELP_TARGET_CC_VERSION="The target Creative Cloud version. See setTarget command file for 'Any' defaults."
+HELP_TARGET_CC_VERSION="The target Creative Cloud version. Inspect the Template/includes/appMap.json file to see the 'Any' defaults that will be used."
 SELECT_TARGET_CC_VERSION="Any,2020,CC 2019,CC 2018"
 
 TARGET_CC_LANGUAGE_CODE="en_US"
@@ -39,7 +39,7 @@ SHORTCODE="JSPK"
 HELP_SHORTCODE="Some variable name for global object used to store jsx globals. Helps avoiding variable name clashes."
 
 SCRIPT_DIRNAME=JSXSparker
-HELP_EXTENSION_DIRNAME="This is a subfolder name used to store the script in the user scripts folder, and to store preferences in ~/Library/Preferences or %APPDATA%"
+HELP_SCRIPT_DIRNAME="This is a subfolder name used to store the script in the user scripts folder, and to store preferences in ~/Library/Preferences or %APPDATA%"
 
 PREFS_FILENAME=JSXSparkerPreferences.json
 HELP_PREFS_FILENAME="This is a file name name to store preferences in the preferences subfolder"

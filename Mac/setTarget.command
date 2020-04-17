@@ -11,12 +11,12 @@ pushd "$JSXP_COMMANDS_DIR" > /dev/null
 
 export JSXP_COMMANDS_DIR=`pwd`
 
-export PROJECT_ROOT_DIR=`dirname "$JSXP_COMMANDS_DIR"`
+export PROJECT_ROOT_DIR=`dirname "$JSXP_COMMANDS_DIR"`/
 
 #
 # Don't even try if the project has not been generated
 #
-if [ ! -e "$PROJECT_ROOT_DIR/BuildSettings/buildSettings.command" ]; then
+if [ ! -e "${PROJECT_ROOT_DIR}BuildSettings/buildSettings.command" ]; then
 
   echo ""
   echo "Run the JSXSparkerConfig first - this project has not been configured."
@@ -26,8 +26,8 @@ if [ ! -e "$PROJECT_ROOT_DIR/BuildSettings/buildSettings.command" ]; then
 
 fi
 
-export BUILD_SETTINGS_DIR="$PROJECT_ROOT_DIR/BuildSettings/"
-export BUILD_DIR="$PROJECT_ROOT_DIR/build/"
+export BUILD_SETTINGS_DIR="${PROJECT_ROOT_DIR}BuildSettings/"
+export BUILD_DIR="${PROJECT_ROOT_DIR}build/"
 
 . "$BUILD_SETTINGS_DIR/buildSettings.command"
 

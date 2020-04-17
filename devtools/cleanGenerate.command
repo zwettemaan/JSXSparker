@@ -6,14 +6,14 @@
 export JSXP_DEV_TOOLS_DIR=`dirname "$0"`
 pushd "$JSXP_DEV_TOOLS_DIR" > /dev/null
 export JSXP_DEV_TOOLS_DIR=`pwd`
-export PROJECT_ROOT_DIR=`dirname "$JSXP_DEV_TOOLS_DIR"`
+export PROJECT_ROOT_DIR=`dirname "$JSXP_DEV_TOOLS_DIR"`/
 
-export JSXP_COMMANDS_DIR="$PROJECT_ROOT_DIR%/Mac"
+export JSXP_COMMANDS_DIR="${PROJECT_ROOT_DIR}Mac"
 
 #
 # Don't even try if the project has not been generated
 #
-if [ ! -d "$PROJECT_ROOT_DIR/BuildSettings" ]; then
+if [ ! -d "${PROJECT_ROOT_DIR}BuildSettings" ]; then
 
     echo ""
     echo "This project has not been configured yet - nothing to remove."

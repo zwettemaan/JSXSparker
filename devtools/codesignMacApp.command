@@ -4,10 +4,10 @@ pushd "$JSXP_DEV_TOOLS_DIR" > /dev/null
 
 export JSXP_DEV_TOOLS_DIR=`pwd`
 
-export PROJECT_ROOT_DIR=`dirname "$JSXP_DEV_TOOLS_DIR"`
+export PROJECT_ROOT_DIR=`dirname "$JSXP_DEV_TOOLS_DIR"`/
 
-export sourceDir="$PROJECT_ROOT_DIR/ToolSources/JSXSparkerConfig"
-export entitlementsPlist="$sourceDir/JSXSparkerConfig.entitlements.plist"
+export sourceDir="${PROJECT_ROOT_DIR}ToolSources/JSXSparkerConfig/"
+export entitlementsPlist="${sourceDir}JSXSparkerConfig.entitlements.plist"
 
 export codeSignID=`head -n 1 macCodeSignID.txt`
 

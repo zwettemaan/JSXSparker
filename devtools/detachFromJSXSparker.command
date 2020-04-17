@@ -9,7 +9,7 @@ pushd "$JSXP_DEV_TOOLS_DIR" > /dev/null
 
 export JSXP_DEV_TOOLS_DIR=`pwd`
 
-export PROJECT_ROOT_DIR=`dirname "$JSXP_DEV_TOOLS_DIR"`
+export PROJECT_ROOT_DIR=`dirname "$JSXP_DEV_TOOLS_DIR"`/
 
 cd "$PROJECT_ROOT_DIR"
 

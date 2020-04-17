@@ -17,6 +17,8 @@ cd ../devtools
 
 xattr -dr com.apple.quarantine *.command
 
+echo ""
 echo '*.command scripts and JSXSparkerConfig.app are now de-quarantined.'
+echo ""
 
 popd > /dev/null
