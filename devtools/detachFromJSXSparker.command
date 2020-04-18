@@ -3,11 +3,11 @@
 # so the project becomes stand-alone
 #
 
-export JSXP_DEV_TOOLS_DIR=`dirname "$0"`
+export JSXP_DEV_TOOLS_DIR=`dirname "$0"`/
 
 pushd "$JSXP_DEV_TOOLS_DIR" > /dev/null
 
-export JSXP_DEV_TOOLS_DIR=`pwd`
+export JSXP_DEV_TOOLS_DIR=`pwd`/
 
 export PROJECT_ROOT_DIR=`dirname "$JSXP_DEV_TOOLS_DIR"`/
 

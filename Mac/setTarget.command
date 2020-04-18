@@ -4,12 +4,12 @@
 #
 
 if [ "$JSXP_COMMANDS_DIR" == "" -o ! -d "$JSXP_COMMANDS_DIR" ]; then
-    export JSXP_COMMANDS_DIR=`dirname "$0"`
+    export JSXP_COMMANDS_DIR=`dirname "$0"`/
 fi
 
 pushd "$JSXP_COMMANDS_DIR" > /dev/null
 
-export JSXP_COMMANDS_DIR=`pwd`
+export JSXP_COMMANDS_DIR=`pwd`/
 
 export PROJECT_ROOT_DIR=`dirname "$JSXP_COMMANDS_DIR"`/
 
@@ -32,7 +32,7 @@ export BUILD_DIR="${PROJECT_ROOT_DIR}build/"
 . "$BUILD_SETTINGS_DIR/buildSettings.command"
 
 if [ "$TARGET_APP" == "Illustrator" ]; then
-    "$JSXP_COMMANDS_DIR/makeScriptsFolderAccessible.command" "$TARGET_APP_SCRIPT_DIR"
+    "${JSXP_COMMANDS_DIR}makeScriptsFolderAccessible.command" "$TARGET_APP_SCRIPT_DIR"
 fi
 
 if [ "$TARGET_APP_SCRIPT_DIR" != "" -a "$SCRIPT_DIRNAME" != "" ]; then

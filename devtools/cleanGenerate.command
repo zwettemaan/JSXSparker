@@ -5,10 +5,10 @@
 
 export JSXP_DEV_TOOLS_DIR=`dirname "$0"`
 pushd "$JSXP_DEV_TOOLS_DIR" > /dev/null
-export JSXP_DEV_TOOLS_DIR=`pwd`
+export JSXP_DEV_TOOLS_DIR=`pwd`/
 export PROJECT_ROOT_DIR=`dirname "$JSXP_DEV_TOOLS_DIR"`/
 
-export JSXP_COMMANDS_DIR="${PROJECT_ROOT_DIR}Mac"
+export JSXP_COMMANDS_DIR="${PROJECT_ROOT_DIR}Mac/"
 
 #
 # Don't even try if the project has not been generated
