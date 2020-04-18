@@ -1651,6 +1651,9 @@ End
 		          wend
 		        end if
 		        
+		        fPlaceholderDict.Value(kPlaceholder_TARGET_CC_VERSION) = targetCCVersion
+		        fPlaceholderDict.Value(kPlaceholder_TARGET_CC_VERSION_SELECTED) = targetCCVersionSelected
+		        
 		        Dim appVersionPlaceholder as String
 		        appVersionPlaceholder = "TARGET_" + Uppercase(targetApp) + "_VERSION"
 		        fPlaceholderDict.Value(appVersionPlaceholder) = appVersion
@@ -1688,9 +1691,6 @@ End
 		        fPlaceholderDict.Value(kPlaceholder_TARGET_APP_SPECIFIER) = targetAppSpecifier
 		        
 		      end if
-		      
-		      fPlaceholderDict.Value(kPlaceholder_TARGET_CC_VERSION_SELECTED) = targetCCVersionSelected
-		      fPlaceholderDict.Value(kPlaceholder_TARGET_CC_VERSION) = targetCCVersion
 		      
 		    catch e as RuntimeException
 		      LogError CurrentMethodName, "Throws " + e.Message

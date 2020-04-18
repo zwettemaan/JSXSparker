@@ -16,7 +16,7 @@ fi
 export needPassword="YES"
 sudo --reset-timestamp
 
-if [ $fileGroup != "staff" ]; then
+if [ "$fileGroup" != "staff" ]; then
     if [ "$needPassword" == "YES" ]; then
         echo 'Enter your user password for this Mac:'
         export needPassword="NO"
