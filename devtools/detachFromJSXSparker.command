@@ -40,7 +40,6 @@ else
         rm -rf .git  
         rm -f .gitignore
         rm -f ReadMe.md
-        rm -f ProjectConfig.txt
         rm -rf $devtoolsDir
         rm -rf Templates
         rm -rf ToolSources
