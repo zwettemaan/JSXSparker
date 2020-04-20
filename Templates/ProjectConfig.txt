@@ -29,14 +29,17 @@ SELECT_TARGET_APP="Any,InDesign,Illustrator"
 TARGET_APP_CPU_WORD_SIZE="64"
 HELP_TARGET_APP_CPU_WORD_SIZE="CPU word size. Nearly always 64 bit."
 SELECT_TARGET_APP_CPU_WORD_SIZE="64,32"
+IS_ADVANCED_TARGET_APP_CPU_WORD_SIZE=1
 
 TARGET_CC_VERSION="Any"
 HELP_TARGET_CC_VERSION="The target Creative Cloud version. Inspect the Template/includes/appMap.json file to see the 'Any' defaults that will be used."
 SELECT_TARGET_CC_VERSION="Any,2020,CC 2019,CC 2018"
+IS_ADVANCED_TARGET_CC_VERSION=1
 
 TARGET_CC_LANGUAGE_CODE="en_US"
 HELP_TARGET_CC_LANGUAGE_CODE="The target Creative Cloud language code (needed to find the scripts directory). See setTarget command file for 'Any' defaults."
 SELECT_TARGET_CC_LANGUAGE_CODE="en_US,cs_CZ,da_DK,de_DE,es_ES,es_MX,fi_FI,fr_CA,fr_FR,fr_MA,hu_HU,it_IT,ja_JP,ko_KR,nb_NO,nl_NL,pl_PL,pt_BR,ru_RU,sv_SE,tr_TR,uk_UA,zh_CN,zh_TW"
+IS_ADVANCED_TARGET_CC_LANGUAGE_CODE=1
 
 USE_PERSISTENT_ENGINE="OFF"
 SELECT_USE_PERSISTENT_ENGINE="ON,OFF"

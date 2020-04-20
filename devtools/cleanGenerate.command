@@ -4,8 +4,11 @@
 #
 
 export JSXP_DEV_TOOLS_DIR=`dirname "$0"`
+
 pushd "$JSXP_DEV_TOOLS_DIR" > /dev/null
+
 export JSXP_DEV_TOOLS_DIR=`pwd`/
+
 export PROJECT_ROOT_DIR=`dirname "$JSXP_DEV_TOOLS_DIR"`/
 
 export JSXP_COMMANDS_DIR="${PROJECT_ROOT_DIR}Mac/"
@@ -21,38 +24,44 @@ if [ ! -d "${PROJECT_ROOT_DIR}BuildSettings" ]; then
     echo ""
     exit
 
-fi
-
-echo ""
-echo "***  WARNING WARNING WARNING  ***"
-echo ""
-echo "This will irrevokably delete all generated files."
-echo ""
-echo "Type 'YES' at the prompt only if you're really sure"
-echo "you want to do this."
-
-read reply
-
-if [ "$reply" == "YES" ]; then
-
-    cd "$PROJECT_ROOT_DIR"
-
-    Mac/clean.command
-
-    . Mac/setTarget.command
+else
 
     echo ""
-    echo "Removing generated files"
+    echo "***  WARNING WARNING WARNING  ***"
     echo ""
-    
-    rm -f run.jsx
-    rm -f "ReadMe for $TARGET_NAME.md"
-    rm -rf BuildSettings
-    rm -rf jsx
-    rm -rf shared_js_jsx
-    rm -rf .vscode
-    rm -rf VSCode
-    
+    echo "This will irrevokably delete all generated files."
+    echo ""
+    echo "Type 'YES' at the prompt only if you're really sure"
+    echo "you want to do this."
+
+    read reply
+
+    if [ "$reply" == "YES" ]; then
+
+        cd "$PROJECT_ROOT_DIR"
+
+        Mac/clean.command
+
+        . Mac/setTarget.command
+
+        echo ""
+        echo "Removing generated files"
+        echo ""
+        
+        rm -f run.jsx
+        rm -f "ReadMe for $TARGET_NAME.md"
+        rm -rf BuildSettings
+        rm -rf jsx
+        rm -rf shared_js_jsx
+        rm -rf .vscode
+        rm -rf VSCode
+
+        echo ""
+        echo "This project has been reset to an unconfigured, blank state."
+        echo ""
+        
+    fi
+
 fi
 
 popd > /dev/null

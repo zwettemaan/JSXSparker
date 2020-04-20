@@ -24,6 +24,8 @@ echo ""
 
 mkdir "$BUILD_DIR"
 
+export BUILD_SCRIPT_ROOT_DIR="${BUILD_DIR}${TARGET_DIRNAME}/"
+
 echo ""
 echo Creating directory "$BUILD_SCRIPT_ROOT_DIR"
 echo ""
@@ -38,5 +40,15 @@ cp "${PROJECT_ROOT_DIR}run.jsx" "$BUILD_SCRIPT_ROOT_DIR"
 cp "${PROJECT_ROOT_DIR}ReadMe for ${TARGET_NAME}.md" "$BUILD_SCRIPT_ROOT_DIR"
 cp -R "${PROJECT_ROOT_DIR}jsx" "${BUILD_SCRIPT_ROOT_DIR}jsx"
 cp -R "${PROJECT_ROOT_DIR}shared_js_jsx" "${BUILD_SCRIPT_ROOT_DIR}shared_js_jsx"
+
+cd "$BUILD_DIR"
+
+zip -r ${DESPACED_TARGET_NAME}.${PROJECT_VERSION}.zip "${TARGET_DIRNAME}"
+
+rm -rf "${TARGET_DIRNAME}"
+
+echo ""
+echo "Compressed release created: ${BUILD_DIR}${DESPACED_TARGET_NAME}.${PROJECT_VERSION}.zip"
+echo ""
 
 popd > /dev/null

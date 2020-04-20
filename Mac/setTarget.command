@@ -44,10 +44,4 @@ if [ "$TARGET_APP_SCRIPT_DIR" != "" -a "$TARGET_DIRNAME" != "" ]; then
 
 fi
 
-if [ "$TARGET_DIRNAME" != "" ]; then
-
-    export BUILD_SCRIPT_ROOT_DIR="${BUILD_DIR}${TARGET_DIRNAME}/"
-
-fi
-
 popd > /dev/null
