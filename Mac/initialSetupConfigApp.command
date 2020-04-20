@@ -10,7 +10,7 @@ pushd "$JSXP_COMMANDS_DIR" > /dev/null
 
 export JSXP_COMMANDS_DIR=`pwd`/
 
-xattr -dr com.apple.quarantine JSXSparkerConfig.app
+xattr -dr com.apple.quarantine SparkerConfig.app
 xattr -dr com.apple.quarantine *.command
 
 cd ../devtools
@@ -18,7 +18,7 @@ cd ../devtools
 xattr -dr com.apple.quarantine *.command
 
 echo ""
-echo '*.command scripts and JSXSparkerConfig.app are now de-quarantined.'
+echo '*.command scripts and SparkerConfig.app are now de-quarantined.'
 echo ""
 
 popd > /dev/null

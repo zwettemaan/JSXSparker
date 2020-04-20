@@ -12,7 +12,7 @@ if (! $$SHORTCODE$$.C) {
     $$SHORTCODE$$.C = {}; // stash constants here   
 }
 
-$$SHORTCODE$$.C.DIRNAME_PREFERENCES  = "$$SCRIPT_DIRNAME$$";
+$$SHORTCODE$$.C.DIRNAME_PREFERENCES  = "$$TARGET_DIRNAME$$";
 $$SHORTCODE$$.C.FILENAME_PREFERENCES = "$$PREFS_FILENAME$$";
 
 $$SHORTCODE$$.C.LOG_NONE                      = 0;

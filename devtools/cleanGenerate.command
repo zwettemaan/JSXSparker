@@ -46,14 +46,12 @@ if [ "$reply" == "YES" ]; then
     echo ""
     
     rm -f run.jsx
-    rm -f "ReadMe for $SCRIPT_NAME.md"
+    rm -f "ReadMe for $TARGET_NAME.md"
     rm -rf BuildSettings
     rm -rf jsx
     rm -rf shared_js_jsx
     rm -rf .vscode
     rm -rf VSCode
-    rm -rf ToolSources/JSXSparkerConfig/Builds*
-    rm -rf ToolSources/JSXSparkerConfig/.JSXSparkerConfig.xojo_uistate
     
 fi
 

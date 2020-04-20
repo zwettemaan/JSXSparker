@@ -1,4 +1,4 @@
-# How to install $$SCRIPT_NAME$$
+# How to install $$TARGET_NAME$$
 
 $if "$$TARGET_APP$$" == "InDesign"
 For InDesign

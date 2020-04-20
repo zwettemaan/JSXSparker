@@ -4,7 +4,7 @@
         {
             "type": "extendscript-debug",
             "request": "launch",
-            "name": "$$SCRIPT_NAME$$",
+            "name": "$$TARGET_NAME$$",
 $if "$$TARGET_APP_SPECIFIER$$" != ""
             "targetSpecifier": "$$TARGET_APP_SPECIFIER$$",
 $endif            

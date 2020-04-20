@@ -20,10 +20,10 @@ if [ -d "$TARGET_APP_SCRIPT_DIR" ]; then
     if [ "$TARGET_APP" == "Illustrator" ]; then
 
         echo ""
-        echo "Installing Illustrator stub script ${TARGET_APP_SCRIPT_DIR}${DESPACED_SCRIPT_NAME}.jsx" 
+        echo "Installing Illustrator stub script ${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.jsx" 
         echo ""
 
-        echo "//@include \"${PROJECT_ROOT_DIR}run.jsx\"" > "${TARGET_APP_SCRIPT_DIR}${DESPACED_SCRIPT_NAME}.jsx"
+        echo "//@include \"${PROJECT_ROOT_DIR}run.jsx\"" > "${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.jsx"
 
     else 
 

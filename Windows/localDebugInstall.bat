@@ -24,7 +24,7 @@ IF EXIST "%TARGET_APP_SCRIPT_DIR%" (
 
     IF "%TARGET_APP%" == "Illustrator" (
 
-        ECHO Starting an administrator shell to create an Illustrator stub script "%TARGET_APP_SCRIPT_DIR%%DESPACED_SCRIPT_NAME%.jsx"
+        ECHO Starting an administrator shell to create an Illustrator stub script "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx"
 
         ECHO @ECHO OFF                                                                             > %TEMP%\sudocmd.bat
         ECHO ECHO Installing Illustrator stub script                                               >> %TEMP%\sudocmd.bat
@@ -36,11 +36,11 @@ IF EXIST "%TARGET_APP_SCRIPT_DIR%" (
 
         REM Need to escape backslashes in path
 
-        Powershell -Command "echo (\"ECHO //@include \"\"%PROJECT_ROOT_DIR%run.jsx\"\" ^> \"\"%TARGET_APP_SCRIPT_DIR%%DESPACED_SCRIPT_NAME%.jsx\"\"\").Replace(\"\\\",\"\\\\\")" >> %TEMP%\sudocmd.bat 2> NUL
+        Powershell -Command "echo (\"ECHO //@include \"\"%PROJECT_ROOT_DIR%run.jsx\"\" ^> \"\"%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx\"\"\").Replace(\"\\\",\"\\\\\")" >> %TEMP%\sudocmd.bat 2> NUL
 
-        ECHO ICACLS "%TARGET_APP_SCRIPT_DIR%%DESPACED_SCRIPT_NAME%.jsx" /GRANT BUILTIN\Users:F ^>NUL 2^>^&1 >> %TEMP%\sudocmd.bat
+        ECHO ICACLS "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx" /GRANT BUILTIN\Users:F ^>NUL 2^>^&1 >> %TEMP%\sudocmd.bat
         ECHO ECHO Illustrator stub script installed as:                                            >> %TEMP%\sudocmd.bat
-        ECHO ECHO     "%TARGET_APP_SCRIPT_DIR%%DESPACED_SCRIPT_NAME%.jsx"                                   >> %TEMP%\sudocmd.bat
+        ECHO ECHO     "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx"                                   >> %TEMP%\sudocmd.bat
 
         REM Launch administrative shell
 

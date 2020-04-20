@@ -45,7 +45,7 @@ if "%reply%" == "YES" (
     ECHO.
 
     DEL run.jsx
-    DEL "ReadMe for %SCRIPT_NAME%.md"
+    DEL "ReadMe for %TARGET_NAME%.md"
     RD /s /q BuildSettings >NUL 2>&1  
     RD /s /q jsx >NUL 2>&1
     RD /s /q shared_js_jsx >NUL 2>&1

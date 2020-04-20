@@ -17,13 +17,13 @@ if [ "$TARGET_APP" == "Illustrator" ]; then
 
     # For Illustrator we don't use a link; instead we use a one-line stub script
     
-    if [ -e "${TARGET_APP_SCRIPT_DIR}${DESPACED_SCRIPT_NAME}.jsx" ]; then
+    if [ -e "${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.jsx" ]; then
 
         echo ""
-        echo "Removing Illustrator stub script ${TARGET_APP_SCRIPT_DIR}${DESPACED_SCRIPT_NAME}.jsx" 
+        echo "Removing Illustrator stub script ${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.jsx" 
         echo ""
 
-        rm -f "${TARGET_APP_SCRIPT_DIR}${DESPACED_SCRIPT_NAME}.jsx"
+        rm -f "${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.jsx"
     fi
 
 else

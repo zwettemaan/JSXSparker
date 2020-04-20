@@ -13,13 +13,15 @@ export JSXP_COMMANDS_DIR=`pwd`/
 
 export PROJECT_ROOT_DIR=`dirname "$JSXP_COMMANDS_DIR"`/
 
+export USER_HOME_DIR=~/
+
 #
 # Don't even try if the project has not been generated
 #
-if [ ! -e "${PROJECT_ROOT_DIR}BuildSettings/buildSettings.command" ]; then
+if [ ! -e "${PROJECT_ROOT_DIR}BuildSettings/configSettings.command" ]; then
 
   echo ""
-  echo "Run the JSXSparkerConfig first - this project has not been configured."
+  echo "Run the SparkerConfig first - this project has not been configured."
   echo "Aborting."
   echo ""
   exit
@@ -29,21 +31,22 @@ fi
 export BUILD_SETTINGS_DIR="${PROJECT_ROOT_DIR}BuildSettings/"
 export BUILD_DIR="${PROJECT_ROOT_DIR}build/"
 
+. "$BUILD_SETTINGS_DIR/configSettings.command"
 . "$BUILD_SETTINGS_DIR/buildSettings.command"
 
 if [ "$TARGET_APP" == "Illustrator" ]; then
     "${JSXP_COMMANDS_DIR}makeScriptsFolderAccessible.command" "$TARGET_APP_SCRIPT_DIR"
 fi
 
-if [ "$TARGET_APP_SCRIPT_DIR" != "" -a "$SCRIPT_DIRNAME" != "" ]; then
+if [ "$TARGET_APP_SCRIPT_DIR" != "" -a "$TARGET_DIRNAME" != "" ]; then
 
-    export TARGET_SCRIPT_ROOT_DIR="${TARGET_APP_SCRIPT_DIR}${SCRIPT_DIRNAME}/"
+    export TARGET_SCRIPT_ROOT_DIR="${TARGET_APP_SCRIPT_DIR}${TARGET_DIRNAME}/"
 
 fi
 
-if [ "$SCRIPT_DIRNAME" != "" ]; then
+if [ "$TARGET_DIRNAME" != "" ]; then
 
-    export BUILD_SCRIPT_ROOT_DIR="${BUILD_DIR}${SCRIPT_DIRNAME}/"
+    export BUILD_SCRIPT_ROOT_DIR="${BUILD_DIR}${TARGET_DIRNAME}/"
 
 fi
 

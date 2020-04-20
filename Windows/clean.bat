@@ -22,13 +22,13 @@ IF NOT "%TARGET_SCRIPT_ROOT_DIR%" == "" (
 
         REM For Illustrator we don't use a link; instead we use a one-line stub script
 
-        IF EXIST "%TARGET_APP_SCRIPT_DIR%%DESPACED_SCRIPT_NAME%.jsx" (
+        IF EXIST "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx" (
 
             ECHO.
-            ECHO Removing Illustrator stub script "%TARGET_APP_SCRIPT_DIR%%DESPACED_SCRIPT_NAME%.jsx" 
+            ECHO Removing Illustrator stub script "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx" 
             ECHO.
 
-            DEL "%TARGET_APP_SCRIPT_DIR%%DESPACED_SCRIPT_NAME%.jsx"
+            DEL "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx"
         )
         
     ) ELSE (

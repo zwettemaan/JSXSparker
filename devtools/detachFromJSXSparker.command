@@ -20,7 +20,7 @@ if [ ! -d "./BuildSettings" ]; then
 
     echo ""
     echo "This is an unconfigured JSXSparker project."
-    echo "Make sure to read the documentation and then run JSXSparkerConfig as instructed."
+    echo "Make sure to read the documentation and then run SparkerConfig as instructed."
     echo "Aborting."
     echo ""
 
@@ -42,12 +42,11 @@ else
         rm -f ReadMe.md
         rm -rf $devtoolsDir
         rm -rf Templates
-        rm -rf ToolSources
         rm -f Mac/initialSetupConfigApp.command
-        rm -rf Mac/JSXSparkerConfig.app
+        rm -rf Mac/SparkerConfig.app
         rm -rf "Mac/ Do not forget to de-quarantine!.txt"
-        rm -f Windows/JSXSparkerConfig.exe
-        rm -rf Windows/JSXSparkerConfig\ Libs
+        rm -f Windows/SparkerConfig.exe
+        rm -rf Windows/SparkerConfig\ Libs
         rm -rf "Windows/ Run CMD.exe then use command line.txt"
 
     fi

@@ -14,31 +14,31 @@ POPD
 SET BUILD_SETTINGS_DIR=%PROJECT_ROOT_DIR%BuildSettings\
 SET BUILD_DIR=%PROJECT_ROOT_DIR%build\
 
-IF NOT EXIST "%BUILD_SETTINGS_DIR%buildSettings.bat" (
+IF NOT EXIST "%BUILD_SETTINGS_DIR%configSettings.bat" (
     ECHO.
     ECHO Error: This JSXSparker folder has not been initialized. Make
-    ECHO sure to run the JSXSparkerConfig.exe command first. Aborting.
     ECHO.
     EXIT /B
 ) 
 
+CALL "%BUILD_SETTINGS_DIR%configSettings.bat"
 CALL "%BUILD_SETTINGS_DIR%buildSettings.bat"
 
 SET TARGET_SCRIPT_ROOT_DIR=
 IF "%TARGET_APP_SCRIPT_DIR%" == "" (
     ECHO Error: empty TARGET_APP_SCRIPT_DIR.
-) ELSE IF "%SCRIPT_DIRNAME%" == "" (
-    ECHO Error: empty SCRIPT_DIRNAME.
+) ELSE IF "%TARGET_DIRNAME%" == "" (
+    ECHO Error: empty TARGET_DIRNAME.
 ) ELSE (
-    SET TARGET_SCRIPT_ROOT_DIR=%TARGET_APP_SCRIPT_DIR%%SCRIPT_DIRNAME%\
+    SET TARGET_SCRIPT_ROOT_DIR=%TARGET_APP_SCRIPT_DIR%%TARGET_DIRNAME%\
 )
 
 SET BUILD_SCRIPT_ROOT_DIR=
 IF "%BUILD_DIR%" == "" (
     ECHO Error: empty BUILD_DIR.
-) ELSE IF "%SCRIPT_DIRNAME%" == "" (
-    ECHO Error: empty SCRIPT_DIRNAME.
+) ELSE IF "%TARGET_DIRNAME%" == "" (
+    ECHO Error: empty TARGET_DIRNAME.
 ) ELSE (
-    SET BUILD_SCRIPT_ROOT_DIR=%BUILD_DIR%%SCRIPT_DIRNAME%\
+    SET BUILD_SCRIPT_ROOT_DIR=%BUILD_DIR%%TARGET_DIRNAME%\
 )
 
