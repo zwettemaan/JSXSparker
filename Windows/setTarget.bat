@@ -16,7 +16,7 @@ SET BUILD_DIR=%PROJECT_ROOT_DIR%build\
 
 IF NOT EXIST "%BUILD_SETTINGS_DIR%configSettings.bat" (
     ECHO.
-    ECHO Error: This JSXSparker folder has not been initialized. Make
+    ECHO Run the SparkerConfig first - this project has not been configured.
     ECHO.
     EXIT /B
 ) 

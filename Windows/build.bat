@@ -38,3 +38,5 @@ XCOPY /S/Q jsx "%BUILD_SCRIPT_ROOT_DIR%jsx\" >NUL 2>&1
 XCOPY /S/Q shared_js_jsx "%BUILD_SCRIPT_ROOT_DIR%shared_js_jsx\" >NUL 2>&1
 
 POPD
+
+SET /P REPLY=Press [Enter] to finalize 

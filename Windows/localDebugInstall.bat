@@ -58,11 +58,13 @@ IF EXIST "%TARGET_APP_SCRIPT_DIR%" (
 
         ECHO Creating temporary symbolic links to the script and its library folders directory "%TARGET_SCRIPT_ROOT_DIR%"
 
-        MKLINK /H "%TARGET_SCRIPT_ROOT_DIR%run.jsx" "%PROJECT_ROOT_DIR%run.jsx"
-        MKLINK /J "%TARGET_SCRIPT_ROOT_DIR%jsx" "%PROJECT_ROOT_DIR%jsx"
+        MKLINK /H "%TARGET_SCRIPT_ROOT_DIR%run.jsx"       "%PROJECT_ROOT_DIR%run.jsx"
+        MKLINK /J "%TARGET_SCRIPT_ROOT_DIR%jsx"           "%PROJECT_ROOT_DIR%jsx"
         MKLINK /J "%TARGET_SCRIPT_ROOT_DIR%shared_js_jsx" "%PROJECT_ROOT_DIR%shared_js_jsx"
     )
 
 )
 
 POPD
+
+SET /P REPLY=Press [Enter] to finalize 

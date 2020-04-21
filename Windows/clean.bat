@@ -58,3 +58,7 @@ IF NOT "%BUILD_DIR%" == "" (
 )
 
 POPD
+
+IF NOT "%1" == "NESTED" (
+    SET /P REPLY=Press [Enter] to finalize 
+)

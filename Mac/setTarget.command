@@ -22,7 +22,6 @@ if [ ! -e "${PROJECT_ROOT_DIR}BuildSettings/configSettings.command" ]; then
 
   echo ""
   echo "Run the SparkerConfig first - this project has not been configured."
-  echo "Aborting."
   echo ""
   exit
 
