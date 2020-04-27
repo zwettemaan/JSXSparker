@@ -20,5 +20,7 @@ xattr -dr com.apple.quarantine *.command
 echo ""
 echo '*.command scripts and SparkerConfig.app are now de-quarantined.'
 echo ""
+echo "You can now close this Terminal window"
+echo ""
 
 popd > /dev/null

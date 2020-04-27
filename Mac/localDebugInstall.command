@@ -51,4 +51,8 @@ if [ -d "$TARGET_APP_SCRIPT_DIR" ]; then
 
 fi
 
+echo ""
+echo "You can now close this Terminal window"
+echo ""
+
 popd > /dev/null

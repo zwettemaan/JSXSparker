@@ -64,4 +64,8 @@ else
 
 fi
 
+echo ""
+echo "You can now close this Terminal window"
+echo ""
+
 popd > /dev/null

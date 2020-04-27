@@ -13,6 +13,8 @@ export PROJECT_ROOT_DIR=`dirname "$JSXP_DEV_TOOLS_DIR"`/
 
 cd "$PROJECT_ROOT_DIR"
 
+export JSX_DELETE_MYSELF=0
+
 #
 # Don't even try if the project has not been generated
 #
@@ -40,7 +42,6 @@ else
         rm -rf .git  
         rm -f .gitignore
         rm -f ReadMe.md
-        rm -rf $devtoolsDir
         rm -rf Templates
         rm -f Mac/initialSetupConfigApp.command
         rm -rf Mac/SparkerConfig.app
@@ -48,9 +49,24 @@ else
         rm -f Windows/SparkerConfig.exe
         rm -rf Windows/SparkerConfig\ Libs
         rm -rf "Windows/ Run CMD.exe then use command line.txt"
+        export JSX_DELETE_MYSELF=1
+
+        echo ""
+        echo "All ties to the JSXSparker Github project have now been broken. This"
+        echo "project is now a standalone project and can be put into a git repository"
+        echo "as a brand new project."
+        echo ""
 
     fi
 
 fi
 
+echo ""
+echo "You can now close this Terminal window"
+echo ""
+
 popd > /dev/null
+
+if [ "$JSX_DELETE_MYSELF" == "1" ]; then
+    rm -rf "$JSXP_DEV_TOOLS_DIR"
+fi

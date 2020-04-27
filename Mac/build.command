@@ -50,5 +50,7 @@ rm -rf "${TARGET_DIRNAME}"
 echo ""
 echo "Compressed release created: ${BUILD_DIR}${DESPACED_TARGET_NAME}.${PROJECT_VERSION}.zip"
 echo ""
+echo "You can now close this Terminal window"
+echo ""
 
 popd > /dev/null
