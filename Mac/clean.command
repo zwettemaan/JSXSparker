@@ -50,6 +50,8 @@ fi
 
 if [ "$NESTED" == "" ]; then
     echo ""
+    echo "Project is now clean"
+    echo ""
     echo "You can now close this Terminal window"
     echo ""
 fi

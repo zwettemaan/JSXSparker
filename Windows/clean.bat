@@ -60,6 +60,10 @@ IF NOT "%BUILD_DIR%" == "" (
 POPD
 
 IF NOT "%1" == "NESTED" (
+    
     ECHO.
+    ECHO Project is now clean
+    ECHO.
+
     SET /P REPLY=Press [Enter] to finalize 
 )
