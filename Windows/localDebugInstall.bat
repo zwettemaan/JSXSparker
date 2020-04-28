@@ -21,11 +21,15 @@ PUSHD "%PROJECT_ROOT_DIR%"
 IF EXIST "%TARGET_APP_SCRIPT_DIR%" (
 
     IF "%TARGET_APP%" == "Bridge" (
+
         CD "%PROJECT_ROOT_DIR%"
+
         ECHO.
-        ECHO Double-click the run.jsx script in the Bridge wiundow
+        ECHO Double-click the run.jsx script in the Bridge window
         ECHO.
+
         "%TARGET_APP_SCRIPT_DIR%Bridge.exe" "%cd%"
+
     ) ELSE IF "%TARGET_APP%" == "Illustrator" (
 
         REM For Illustrator we don't use a link; instead we use a one-line stub script

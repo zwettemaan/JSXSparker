@@ -17,7 +17,17 @@ if [ -d "$TARGET_APP_SCRIPT_DIR" ]; then
 
     # For Illustrator we don't use a link; instead we use a one-line stub script
 
-    if [ "$TARGET_APP" == "Illustrator" ]; then
+    if [ "$TARGET_APP" == "Bridge" ]; then
+
+        cd "$PROJECT_ROOT_DIR"
+
+        echo ""
+        echo "Double-click the run.jsx script in the Bridge window"
+        echo ""
+        
+        "${TARGET_APP_SCRIPT_DIR}/Adobe ${TARGET_APP} ${TARGET_CC_VERSION}.app/Contents/MacOS/Adobe ${TARGET_APP} ${TARGET_CC_VERSION}" `pwd` > /dev/null 2>&1 &
+
+    elif [ "$TARGET_APP" == "Illustrator" ]; then
 
         echo ""
         echo "Installing Illustrator stub script ${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.jsx" 
