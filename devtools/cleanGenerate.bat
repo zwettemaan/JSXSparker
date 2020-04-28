@@ -1,43 +1,40 @@
 @ECHO OFF
 
-
 REM
 REM Undo the generation step. This will remove all your hard work.
 REM Do not run this unless you're absolutely sure
 REM
 
-ECHO.
-ECHO WARNING WARNING WARNING
-ECHO.
-ECHO This will irrevokably delete all generated files.
-ECHO.
-ECHO Type 'YES' at the prompt only if you're really sure
-ECHO you want to do this.
-ECHO.
+SET JSXP_DEV_TOOLS_DIR=%~dp0
 
-SET /P REPLY=Delete generated files [YES/NO]?: 
+PUSHD %JSXP_DEV_TOOLS_DIR%..
+SET PROJECT_ROOT_DIR=%cd%\
+POPD
 
-IF "%REPLY%" == "YES" (
+SET JSXP_COMMANDS_DIR=%PROJECT_ROOT_DIR%Windows\
 
-    SET JSXP_DEV_TOOLS_DIR=%~dp0
+REM
+REM Don't even try if the project has not been generated
+REM
+IF NOT EXIST "%PROJECT_ROOT_DIR%BuildSettings%" (
+    ECHO.
+    ECHO This project has not been configured yet - nothing to remove.
+    ECHO Aborting.
+    ECHO.
+) ELSE (
+    ECHO.
+    ECHO WARNING WARNING WARNING
+    ECHO.
+    ECHO This will irrevokably delete all generated files.
+    ECHO.
+    ECHO Type 'YES' at the prompt only if you're really sure
+    ECHO you want to do this.
+    ECHO.
 
-    PUSHD %JSXP_DEV_TOOLS_DIR%..
-    SET PROJECT_ROOT_DIR=%cd%\
-    POPD
+    SET /P REPLY=Delete generated files [YES/NO]?: 
 
-    SET JSXP_COMMANDS_DIR=%PROJECT_ROOT_DIR%Windows\
+    IF "%REPLY%" == "YES" (
 
-    REM
-    REM Don't even try if the project has not been generated
-    REM
-    IF NOT EXIST "%PROJECT_ROOT_DIR%BuildSettings%" (
-
-        ECHO.
-        ECHO This project has not been configured yet - nothing to remove.
-        ECHO Aborting.
-        ECHO.
-
-    ) ELSE (
 
         PUSHD "%PROJECT_ROOT_DIR%"
 
@@ -58,10 +55,8 @@ IF "%REPLY%" == "YES" (
         ECHO This project has been reset to an unconfigured, blank state.
         ECHO.
 
+        POPD
     )
-
-    POPD
-
 )
 
 SET /P REPLY=Press [Enter] to finalize 

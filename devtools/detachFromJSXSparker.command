@@ -48,7 +48,6 @@ else
         rm -rf "Mac/ Do not forget to de-quarantine!.txt"
         rm -f Windows/SparkerConfig.exe
         rm -rf Windows/SparkerConfig\ Libs
-        rm -rf "Windows/ Run CMD.exe then use command line.txt"
         export JSX_DELETE_MYSELF=1
 
         echo ""

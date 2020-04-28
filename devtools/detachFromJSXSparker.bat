@@ -51,7 +51,6 @@ IF NOT EXIST "%PROJECT_ROOT_DIR%BuildSettings%" (
         RD /s /q "Mac\ Do not forget to de-quarantine!.txt" >NUL 2>&1
         DEL Windows/SparkerConfig.exe
         RD /s /q Windows\SparkerConfig\ Libs >NUL 2>&1
-        RD /s /q "Windows\ Run CMD.exe then use command line.txt" >NUL 2>&1
         SET JSXP_DELETE_MYSELF=0
 
         ECHO.

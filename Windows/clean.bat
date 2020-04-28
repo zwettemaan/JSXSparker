@@ -60,5 +60,6 @@ IF NOT "%BUILD_DIR%" == "" (
 POPD
 
 IF NOT "%1" == "NESTED" (
+    ECHO.
     SET /P REPLY=Press [Enter] to finalize 
 )

@@ -26,8 +26,10 @@ IF EXIST "%TARGET_APP_SCRIPT_DIR%" (
 
         ECHO Starting an administrator shell to create an Illustrator stub script "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx"
 
-        ECHO @ECHO OFF                                                                             > %TEMP%\sudocmd.bat
-        ECHO ECHO Installing Illustrator stub script                                               >> %TEMP%\sudocmd.bat
+        ECHO @ECHO OFF
+        ECHO.                                                                             > %TEMP%\sudocmd.bat
+        ECHO Installing Illustrator stub script in separate administrative shell                                               >> %TEMP%\sudocmd.bat
+        ECHO.
 
         REM Get rid of trailing \ in TARGET_APP_SCRIPT_DIR by changing then using current directory
 
@@ -39,8 +41,14 @@ IF EXIST "%TARGET_APP_SCRIPT_DIR%" (
         Powershell -Command "echo (\"ECHO //@include \"\"%PROJECT_ROOT_DIR%run.jsx\"\" ^> \"\"%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx\"\"\").Replace(\"\\\",\"\\\\\")" >> %TEMP%\sudocmd.bat 2> NUL
 
         ECHO ICACLS "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx" /GRANT BUILTIN\Users:F ^>NUL 2^>^&1 >> %TEMP%\sudocmd.bat
-        ECHO ECHO Illustrator stub script installed as:                                            >> %TEMP%\sudocmd.bat
-        ECHO ECHO     "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx"                                   >> %TEMP%\sudocmd.bat
+        ECHO ECHO. >> %TEMP%\sudocmd.bat
+        ECHO ECHO Illustrator stub script installed as: >> %TEMP%\sudocmd.bat
+        ECHO ECHO     "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx" >> %TEMP%\sudocmd.bat
+        ECHO ECHO. >> %TEMP%\sudocmd.bat
+        ECHO ECHO You can close this administrative shell window now >> %TEMP%\sudocmd.bat
+        ECHO ECHO. >> %TEMP%\sudocmd.bat
+        ECHO ECHO Debug install done. >> %TEMP%\sudocmd.bat
+        ECHO ECHO. >> %TEMP%\sudocmd.bat
 
         REM Launch administrative shell
 
@@ -48,22 +56,33 @@ IF EXIST "%TARGET_APP_SCRIPT_DIR%" (
 
     ) ELSE (
 
+        ECHO.
         ECHO Removing directory "%TARGET_SCRIPT_ROOT_DIR%"
+        ECHO.
 
         RD /s /q "%TARGET_SCRIPT_ROOT_DIR%" >NUL 2>&1
 
+        ECHO.
         ECHO Recreating directory "%TARGET_SCRIPT_ROOT_DIR%"
+        ECHO.
 
         MKDIR "%TARGET_SCRIPT_ROOT_DIR%"
 
+        ECHO.
         ECHO Creating temporary symbolic links to the script and its 'helpers' directory inside directory "%TARGET_SCRIPT_ROOT_DIR%"
+        ECHO.
 
         MKLINK /H "%TARGET_SCRIPT_ROOT_DIR%run.jsx"       "%PROJECT_ROOT_DIR%run.jsx"
         MKLINK /J "%TARGET_SCRIPT_ROOT_DIR%helpers"       "%PROJECT_ROOT_DIR%helpers"
+
+        ECHO.
+        ECHO Debug install done.
+        ECHO.
     )
 
 )
 
 POPD
 
+ECHO.
 SET /P REPLY=Press [Enter] to finalize 
