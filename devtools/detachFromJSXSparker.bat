@@ -30,8 +30,8 @@ IF NOT EXIST "%PROJECT_ROOT_DIR%BuildSettings%" (
     ECHO.
     ECHO This project will now stand on its own, and become independent of JSXSparker.
     ECHO.
-    ECHO This operation will delete all templates files and JSXSparker configuration
-    ECHO software, and detach the project from the JSXSparker git repo.
+    ECHO This operation will delete all template files and JSXSparker configuration
+    ECHO software, and (if necessary) also detach the project from the JSXSparker git repo.
     ECHO.
     ECHO Type 'YES' at the prompt only if you're sure you want to do this.
     ECHO.
