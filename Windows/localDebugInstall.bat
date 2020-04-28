@@ -18,7 +18,15 @@ CALL setTarget.bat
 
 PUSHD "%PROJECT_ROOT_DIR%"
 
-IF EXIST "%TARGET_APP_SCRIPT_DIR%" (
+IF NOT EXIST "%TARGET_APP_SCRIPT_DIR%" (
+
+    ECHO.
+    ECHO Cannot find %TARGET_APP_SCRIPT_DIR%
+    ECHO.
+    ECHO Make sure you have launched Adobe %TARGET_APP% %TARGET_CC_VERSION% on this computer at least once.
+    ECHO.
+
+) ELSE (
 
     IF "%TARGET_APP%" == "Bridge" (
 

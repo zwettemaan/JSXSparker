@@ -13,7 +13,15 @@ export JSXP_COMMANDS_DIR=`pwd`/
 
 . setTarget.command
 
-if [ -d "$TARGET_APP_SCRIPT_DIR" ]; then
+if [ ! -d "$TARGET_APP_SCRIPT_DIR" ]; then
+
+    echo ""
+    echo "Cannot find $TARGET_APP_SCRIPT_DIR"
+    echo ""
+    echo "Make sure you have launched Adobe $TARGET_APP $TARGET_CC_VERSION on this computer at least once."
+    echo ""
+
+else 
 
     # For Illustrator we don't use a link; instead we use a one-line stub script
 
@@ -55,7 +63,7 @@ if [ -d "$TARGET_APP_SCRIPT_DIR" ]; then
 
         ln -s "${PROJECT_ROOT_DIR}run.jsx" "${TARGET_SCRIPT_ROOT_DIR}run.jsx"
         ln -s "${PROJECT_ROOT_DIR}helpers" "${TARGET_SCRIPT_ROOT_DIR}helpers"
-        
+
     fi
 
 fi
