@@ -4,12 +4,12 @@
 main();
 
 function main() {
-	
-	$$SHORTCODE$$.initScript();
+    
+    $$SHORTCODE$$.initScript();
 
-	// Your code here...
+    // Your code here...
 $if "$$STARTERCODE$$" == "HelloWorld"
-	alert("Hello World");
+    alert("Hello World");
 $endif
 
 }

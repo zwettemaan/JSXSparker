@@ -4,7 +4,11 @@ $if "$$TARGET_CC_VERSION_SELECTED$$" == "Any"
 $else
 //@target $$TARGET_APP_SPECIFIER$$
 $endif
-$if "$$TARGET_APP_SELECTED$$" == "InDesign" and "$$USE_PERSISTENT_ENGINE$$" == "ON"
+$if "$$USE_PERSISTENT_ENGINE$$" == "ON"
+$if "$$TARGET_APP_SELECTED$$" == "InDesign"
 //@targetengine $$SHORTCODE$$_Engine
+$elif "$$TARGET_APP_SELECTED$$" == "InCopy"
+//@targetengine $$SHORTCODE$$_Engine
+$endif
 $endif
 $endif

@@ -20,21 +20,29 @@ PUSHD "%PROJECT_ROOT_DIR%"
 
 IF EXIST "%TARGET_APP_SCRIPT_DIR%" (
 
-    REM For Illustrator we don't use a link; instead we use a one-line stub script
-
-    IF "%TARGET_APP%" == "Illustrator" (
-
-        ECHO Starting an administrator shell to create an Illustrator stub script "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx"
-
-        ECHO @ECHO OFF
-        ECHO.                                                                             > %TEMP%\sudocmd.bat
-        ECHO Installing Illustrator stub script in separate administrative shell                                               >> %TEMP%\sudocmd.bat
+    IF "%TARGET_APP%" == "Bridge" (
+        CD "%PROJECT_ROOT_DIR%"
         ECHO.
+        ECHO Double-click the run.jsx script in the Bridge wiundow
+        ECHO.
+        "%TARGET_APP_SCRIPT_DIR%Bridge.exe" "%cd%"
+    ) ELSE IF "%TARGET_APP%" == "Illustrator" (
+
+        REM For Illustrator we don't use a link; instead we use a one-line stub script
+
+        ECHO.
+        ECHO Starting an administrator shell to create an Illustrator stub script "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx"
+        ECHO.
+
+        ECHO @ECHO OFF > %TEMP%\sudocmd.bat
+        ECHO ECHO. >> %TEMP%\sudocmd.bat
+        ECHO ECHO Installing Illustrator stub script by way of a separate administrative shell >> %TEMP%\sudocmd.bat
+        ECHO ECHO. >> %TEMP%\sudocmd.bat
 
         REM Get rid of trailing \ in TARGET_APP_SCRIPT_DIR by changing then using current directory
 
-        ECHO CD %TARGET_APP_SCRIPT_DIR%                                                            >> %TEMP%\sudocmd.bat
-        ECHO ICACLS . /GRANT BUILTIN\Users:F ^>NUL 2^>^&1                                          >> %TEMP%\sudocmd.bat 
+        ECHO CD %TARGET_APP_SCRIPT_DIR% >> %TEMP%\sudocmd.bat
+        ECHO ICACLS . /GRANT BUILTIN\Users:F ^>NUL 2^>^&1 >> %TEMP%\sudocmd.bat 
 
         REM Need to escape backslashes in path
 
@@ -72,8 +80,8 @@ IF EXIST "%TARGET_APP_SCRIPT_DIR%" (
         ECHO Creating temporary symbolic links to the script and its 'helpers' directory inside directory "%TARGET_SCRIPT_ROOT_DIR%"
         ECHO.
 
-        MKLINK /H "%TARGET_SCRIPT_ROOT_DIR%run.jsx"       "%PROJECT_ROOT_DIR%run.jsx"
-        MKLINK /J "%TARGET_SCRIPT_ROOT_DIR%helpers"       "%PROJECT_ROOT_DIR%helpers"
+        MKLINK /H "%TARGET_SCRIPT_ROOT_DIR%run.jsx" "%PROJECT_ROOT_DIR%run.jsx"
+        MKLINK /J "%TARGET_SCRIPT_ROOT_DIR%helpers" "%PROJECT_ROOT_DIR%helpers"
 
         ECHO.
         ECHO Debug install done.

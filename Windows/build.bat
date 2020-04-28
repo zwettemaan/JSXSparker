@@ -47,7 +47,6 @@ XCOPY /S/Q helpers "%BUILD_SCRIPT_ROOT_DIR%helpers\" >NUL 2>&1
 Powershell -Command "Compress-Archive -Path '%BUILD_DIR%%TARGET_DIRNAME%' -DestinationPath '%BUILD_DIR%%TARGET_DIRNAME%.zip'"
 RD /S /Q "%BUILD_DIR%%TARGET_DIRNAME%" >NUL 2>&1
 
-
 POPD
 
 ECHO.

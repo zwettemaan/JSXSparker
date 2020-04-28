@@ -4,7 +4,7 @@
 #
 
 if [ "$JSXP_COMMANDS_DIR" == "" -o ! -d "$JSXP_COMMANDS_DIR" ]; then
-    export JSXP_COMMANDS_DIR=`dirname "$0"`/
+        export JSXP_COMMANDS_DIR=`dirname "$0"`/
 fi
 
 pushd "$JSXP_COMMANDS_DIR" > /dev/null
@@ -20,10 +20,10 @@ export USER_HOME_DIR=~/
 #
 if [ ! -e "${PROJECT_ROOT_DIR}BuildSettings/configSettings.command" ]; then
 
-  echo ""
-  echo "Run the SparkerConfig first - this project has not been configured."
-  echo ""
-  exit
+    echo ""
+    echo "Run the SparkerConfig first - this project has not been configured."
+    echo ""
+    exit
 
 fi
 
