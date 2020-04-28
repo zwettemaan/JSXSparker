@@ -42,6 +42,7 @@ else
         rm -rf .git  
         rm -f .gitignore
         rm -f ReadMe.md
+        rm -f LICENSE
         rm -rf Templates
         rm -f Mac/initialSetupConfigApp.command
         rm -rf Mac/SparkerConfig.app

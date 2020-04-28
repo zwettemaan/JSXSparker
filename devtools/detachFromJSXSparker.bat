@@ -1,4 +1,5 @@
 @ECHO OFF
+SETLOCAL EnableDelayedExpansion
 
 REM
 REM Remove all the JSXSparker templates and generation software
@@ -16,7 +17,8 @@ SET JSXP_COMMANDS_DIR=%PROJECT_ROOT_DIR%Windows\
 REM
 REM Don't even try if the project has not been generated
 REM
-SET JSXP_DELETE_MYSELF=0
+
+SET REPLY=
 IF NOT EXIST "%PROJECT_ROOT_DIR%BuildSettings%" (
 
     ECHO.
@@ -31,27 +33,28 @@ IF NOT EXIST "%PROJECT_ROOT_DIR%BuildSettings%" (
     ECHO This project will now stand on its own, and become independent of JSXSparker.
     ECHO.
     ECHO This operation will delete all template files and JSXSparker configuration
-    ECHO software, and (if necessary) also detach the project from the JSXSparker git repo.
+    ECHO software, and if necessary also detach the project from the JSXSparker git repo.
     ECHO.
     ECHO Type 'YES' at the prompt only if you're sure you want to do this.
     ECHO.
 
     SET /P REPLY=Remove all JSXSparker templating software and any ties to the JSXSparker git repository [YES/NO]?: 
 
-    IF "%REPLY%" == "YES" (
+    IF "!REPLY!" == "YES" (
 
         PUSHD "%PROJECT_ROOT_DIR%"
 
         RD /s /q .git >NUL 2>&1
         DEL .gitignore
         DEL ReadMe.md
+        DEL LICENSE
         RD /s /q Templates >NUL 2>&1
-        DEL Mac/initialSetupConfigApp.command
+        DEL Mac\initialSetupConfigApp.command
         RD /s /q Mac\SparkerConfig.app >NUL 2>&1
         RD /s /q "Mac\ Do not forget to de-quarantine!.txt" >NUL 2>&1
-        DEL Windows/SparkerConfig.exe
+        DEL Windows\SparkerConfig.exe
         RD /s /q Windows\SparkerConfig\ Libs >NUL 2>&1
-        SET JSXP_DELETE_MYSELF=0
+        SET JSXP_DELETE_MYSELF="YES"
 
         ECHO.
         ECHO All ties to the JSXSparker Github project have now been broken. This
@@ -63,8 +66,9 @@ IF NOT EXIST "%PROJECT_ROOT_DIR%BuildSettings%" (
     )
 )
 
-SET /P REPLY=Press [Enter] to finalize 
+SET /P FINALIZE=Press [Enter] to finalize
 
-IF "%JSXP_DELETE_MYSELF" == "1" (
+IF "!REPLY!" == "YES" (
     RD /s /q "%JSXP_DEV_TOOLS_DIR%" >NUL 2>&1
 )
+

@@ -1,4 +1,5 @@
 @ECHO OFF
+SETLOCAL EnableDelayedExpansion
 
 REM
 REM Undo the generation step. This will remove all your hard work.
@@ -33,8 +34,7 @@ IF NOT EXIST "%PROJECT_ROOT_DIR%BuildSettings%" (
 
     SET /P REPLY=Delete generated files [YES/NO]?: 
 
-    IF "%REPLY%" == "YES" (
-
+    IF "!REPLY!" == "YES" (
 
         PUSHD "%PROJECT_ROOT_DIR%"
 
@@ -45,7 +45,7 @@ IF NOT EXIST "%PROJECT_ROOT_DIR%BuildSettings%" (
         ECHO.
 
         DEL run.jsx
-        DEL "ReadMe for %TARGET_NAME%.md"
+        DEL "ReadMe for !TARGET_NAME!.md"
         RD /s /q BuildSettings >NUL 2>&1  
         RD /s /q helpers >NUL 2>&1
         RD /s /q .vscode >NUL 2>&1
@@ -59,4 +59,5 @@ IF NOT EXIST "%PROJECT_ROOT_DIR%BuildSettings%" (
     )
 )
 
+ECHO.
 SET /P REPLY=Press [Enter] to finalize 
