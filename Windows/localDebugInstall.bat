@@ -56,11 +56,10 @@ IF EXIST "%TARGET_APP_SCRIPT_DIR%" (
 
         MKDIR "%TARGET_SCRIPT_ROOT_DIR%"
 
-        ECHO Creating temporary symbolic links to the script and its library folders directory "%TARGET_SCRIPT_ROOT_DIR%"
+        ECHO Creating temporary symbolic links to the script and its 'helpers' directory inside directory "%TARGET_SCRIPT_ROOT_DIR%"
 
         MKLINK /H "%TARGET_SCRIPT_ROOT_DIR%run.jsx"       "%PROJECT_ROOT_DIR%run.jsx"
-        MKLINK /J "%TARGET_SCRIPT_ROOT_DIR%jsx"           "%PROJECT_ROOT_DIR%jsx"
-        MKLINK /J "%TARGET_SCRIPT_ROOT_DIR%shared_js_jsx" "%PROJECT_ROOT_DIR%shared_js_jsx"
+        MKLINK /J "%TARGET_SCRIPT_ROOT_DIR%helpers"       "%PROJECT_ROOT_DIR%helpers"
     )
 
 )

@@ -34,8 +34,7 @@ ECHO Copying script files and readme file to "%BUILD_SCRIPT_ROOT_DIR%"
 COPY run.jsx "%BUILD_SCRIPT_ROOT_DIR%" >NUL 2>&1
 COPY "%PROJECT_ROOT_DIR%ReadMe for %TARGET_NAME%.md" "%BUILD_SCRIPT_ROOT_DIR%" >NUL 2>&1
 
-XCOPY /S/Q jsx "%BUILD_SCRIPT_ROOT_DIR%jsx\" >NUL 2>&1
-XCOPY /S/Q shared_js_jsx "%BUILD_SCRIPT_ROOT_DIR%shared_js_jsx\" >NUL 2>&1
+XCOPY /S/Q helpers "%BUILD_SCRIPT_ROOT_DIR%helpers\" >NUL 2>&1
 
 POPD
 

@@ -1,5 +1,5 @@
 ﻿$include "targeting.jsx"
-//@include "jsx/runtime.jsx"
+//@include "helpers/runtime.jsx"
 
 main();
 

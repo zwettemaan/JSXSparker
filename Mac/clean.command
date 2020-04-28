@@ -48,8 +48,10 @@ if [ "$BUILD_DIR" != "" -a -d "$BUILD_DIR" ]; then
     rm -rf "$BUILD_DIR"
 fi
 
-echo ""
-echo "You can now close this Terminal window"
-echo ""
+if [ "$NESTED" == "" ]; then
+    echo ""
+    echo "You can now close this Terminal window"
+    echo ""
+fi
 
 popd > /dev/null

@@ -40,12 +40,11 @@ if [ -d "$TARGET_APP_SCRIPT_DIR" ]; then
         mkdir "$TARGET_SCRIPT_ROOT_DIR"
 
         echo ""
-        echo "Creating temporary symbolic links to the script and its library folders in directory $TARGET_SCRIPT_ROOT_DIR"
+        echo "Creating temporary symbolic links to the script and its 'helpers' directory inside directory $TARGET_SCRIPT_ROOT_DIR"
         echo ""
 
         ln -s "${PROJECT_ROOT_DIR}run.jsx" "${TARGET_SCRIPT_ROOT_DIR}run.jsx"
-        ln -s "${PROJECT_ROOT_DIR}jsx" "${TARGET_SCRIPT_ROOT_DIR}jsx"
-        ln -s "${PROJECT_ROOT_DIR}shared_js_jsx" "${TARGET_SCRIPT_ROOT_DIR}shared_js_jsx"
+        ln -s "${PROJECT_ROOT_DIR}helpers" "${TARGET_SCRIPT_ROOT_DIR}helpers"
         
     fi
 

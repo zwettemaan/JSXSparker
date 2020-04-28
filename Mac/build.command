@@ -38,8 +38,7 @@ echo ""
 
 cp "${PROJECT_ROOT_DIR}run.jsx" "$BUILD_SCRIPT_ROOT_DIR"
 cp "${PROJECT_ROOT_DIR}ReadMe for ${TARGET_NAME}.md" "$BUILD_SCRIPT_ROOT_DIR"
-cp -R "${PROJECT_ROOT_DIR}jsx" "${BUILD_SCRIPT_ROOT_DIR}jsx"
-cp -R "${PROJECT_ROOT_DIR}shared_js_jsx" "${BUILD_SCRIPT_ROOT_DIR}shared_js_jsx"
+cp -R "${PROJECT_ROOT_DIR}helpers" "${BUILD_SCRIPT_ROOT_DIR}helpers"
 
 cd "$BUILD_DIR"
 

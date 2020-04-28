@@ -40,7 +40,9 @@ else
 
         cd "$PROJECT_ROOT_DIR"
 
+        export NESTED="1"
         Mac/clean.command
+        export NESTED=""
 
         . Mac/setTarget.command
 
@@ -51,8 +53,7 @@ else
         rm -f run.jsx
         rm -f "ReadMe for $TARGET_NAME.md"
         rm -rf BuildSettings
-        rm -rf jsx
-        rm -rf shared_js_jsx
+        rm -rf helpers
         rm -rf .vscode
         rm -rf VSCode
 
