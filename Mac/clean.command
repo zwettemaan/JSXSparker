@@ -13,14 +13,14 @@ export JSXP_COMMANDS_DIR=`pwd`/
 
 . setTarget.command
 
-if [ "$TARGET_APP" == "Illustrator" ]; then
+if [ "$TARGET_APP" == "Illustrator" -o "$TARGET_APP" == "Photoshop" ]; then
 
-    # For Illustrator we don't use a link; instead we use a one-line stub script
+    # For Illustrator and Photoshop we don't use a link; instead we use a one-line stub script
     
     if [ -e "${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.jsx" ]; then
 
         echo ""
-        echo "Removing Illustrator stub script ${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.jsx" 
+        echo "Removing $TARGET_APP stub script ${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.jsx" 
         echo ""
 
         rm -f "${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.jsx"

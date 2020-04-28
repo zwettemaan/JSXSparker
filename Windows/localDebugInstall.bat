@@ -28,6 +28,7 @@ IF NOT EXIST "%TARGET_APP_SCRIPT_DIR%" (
 
 ) ELSE (
 
+    SET INSTALL_STUB=
     IF "%TARGET_APP%" == "Bridge" (
 
         CD "%PROJECT_ROOT_DIR%"
@@ -39,40 +40,12 @@ IF NOT EXIST "%TARGET_APP_SCRIPT_DIR%" (
         "%TARGET_APP_SCRIPT_DIR%Bridge.exe" "%cd%"
 
     ) ELSE IF "%TARGET_APP%" == "Illustrator" (
+        
+        SET INSTALL_STUB="1"        
 
-        REM For Illustrator we don't use a link; instead we use a one-line stub script
-
-        ECHO.
-        ECHO Starting an administrator shell to create an Illustrator stub script "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx"
-        ECHO.
-
-        ECHO @ECHO OFF > %TEMP%\sudocmd.bat
-        ECHO ECHO. >> %TEMP%\sudocmd.bat
-        ECHO ECHO Installing Illustrator stub script by way of a separate administrative shell >> %TEMP%\sudocmd.bat
-        ECHO ECHO. >> %TEMP%\sudocmd.bat
-
-        REM Get rid of trailing \ in TARGET_APP_SCRIPT_DIR by changing then using current directory
-
-        ECHO CD %TARGET_APP_SCRIPT_DIR% >> %TEMP%\sudocmd.bat
-        ECHO ICACLS . /GRANT BUILTIN\Users:F ^>NUL 2^>^&1 >> %TEMP%\sudocmd.bat 
-
-        REM Need to escape backslashes in path
-
-        Powershell -Command "echo (\"ECHO //@include \"\"%PROJECT_ROOT_DIR%run.jsx\"\" ^> \"\"%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx\"\"\").Replace(\"\\\",\"\\\\\")" >> %TEMP%\sudocmd.bat 2> NUL
-
-        ECHO ICACLS "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx" /GRANT BUILTIN\Users:F ^>NUL 2^>^&1 >> %TEMP%\sudocmd.bat
-        ECHO ECHO. >> %TEMP%\sudocmd.bat
-        ECHO ECHO Illustrator stub script installed as: >> %TEMP%\sudocmd.bat
-        ECHO ECHO     "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx" >> %TEMP%\sudocmd.bat
-        ECHO ECHO. >> %TEMP%\sudocmd.bat
-        ECHO ECHO You can close this administrative shell window now >> %TEMP%\sudocmd.bat
-        ECHO ECHO. >> %TEMP%\sudocmd.bat
-        ECHO ECHO Debug install done. >> %TEMP%\sudocmd.bat
-        ECHO ECHO. >> %TEMP%\sudocmd.bat
-
-        REM Launch administrative shell
-
-        Powershell -Command "Start-Process cmd \"/k %TEMP%\sudocmd.bat\" -Verb RunAs"
+    ) ELSE IF "%TARGET_APP%" == "Photoshop" (
+        
+        SET INSTALL_STUB="1"
 
     ) ELSE (
 
@@ -98,6 +71,43 @@ IF NOT EXIST "%TARGET_APP_SCRIPT_DIR%" (
         ECHO.
         ECHO Debug install done.
         ECHO.
+    )
+
+    IF "%INSTALL_STUB%" == "1" (
+
+        REM For Illustrator and Photoshop we don't use a link; instead we use a one-line stub script
+
+        ECHO.
+        ECHO Starting an administrator shell to create %TARGET_APP% stub script "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx"
+        ECHO.
+
+        ECHO @ECHO OFF > %TEMP%\sudocmd.bat
+        ECHO ECHO. >> %TEMP%\sudocmd.bat
+        ECHO ECHO Installing %TARGET_APP% stub script by way of a separate administrative shell >> %TEMP%\sudocmd.bat
+        ECHO ECHO. >> %TEMP%\sudocmd.bat
+
+        REM Get rid of trailing \ in TARGET_APP_SCRIPT_DIR by changing then using current directory
+
+        ECHO CD %TARGET_APP_SCRIPT_DIR% >> %TEMP%\sudocmd.bat
+        ECHO ICACLS . /GRANT BUILTIN\Users:F ^>NUL 2^>^&1 >> %TEMP%\sudocmd.bat 
+
+        REM Need to escape backslashes in path
+
+        Powershell -Command "echo (\"ECHO //@include \"\"%PROJECT_ROOT_DIR%run.jsx\"\" ^> \"\"%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx\"\"\").Replace(\"\\\",\"\\\\\")" >> %TEMP%\sudocmd.bat 2> NUL
+
+        ECHO ICACLS "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx" /GRANT BUILTIN\Users:F ^>NUL 2^>^&1 >> %TEMP%\sudocmd.bat
+        ECHO ECHO. >> %TEMP%\sudocmd.bat
+        ECHO ECHO %TARGET_APP% stub script installed as: >> %TEMP%\sudocmd.bat
+        ECHO ECHO     "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx" >> %TEMP%\sudocmd.bat
+        ECHO ECHO. >> %TEMP%\sudocmd.bat
+        ECHO ECHO You can close this administrative shell window now >> %TEMP%\sudocmd.bat
+        ECHO ECHO. >> %TEMP%\sudocmd.bat
+        ECHO ECHO Debug install done. >> %TEMP%\sudocmd.bat
+        ECHO ECHO. >> %TEMP%\sudocmd.bat
+
+        REM Launch administrative shell
+
+        Powershell -Command "Start-Process cmd \"/k %TEMP%\sudocmd.bat\" -Verb RunAs"
     )
 
 )

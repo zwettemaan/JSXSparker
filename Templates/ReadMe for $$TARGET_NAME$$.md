@@ -9,5 +9,5 @@ Boilerplate for Illustrator...
 $elif "$$TARGET_APP$$" == "Bridge"
 Boilerplate for Bridge...
 $else
-Boilerplate for somethng else
+Boilerplate for something else
 $endif

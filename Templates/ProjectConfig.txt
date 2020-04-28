@@ -21,10 +21,10 @@ HELP_ENABLE_LOG_ENTRY_EXIT="Add verbose tracing code for entry/exit into methods
 TARGET_APP="InDesign"
 HELP_TARGET_APP="The target Adobe application. See setTarget command file for 'Any' defaults."
 # List is not complete yet - in progress 
-SELECT_TARGET_APP="Any,InDesign,Illustrator,InCopy,Bridge"
+SELECT_TARGET_APP="Any,Bridge,InCopy,InDesign,Illustrator,Photoshop"
 
 # Still 'to do'
-# SELECT_TARGET_APP="Photoshop,Premiere Pro,After Effects,Dreamweaver,Prelude,Audition"
+# SELECT_TARGET_APP="Premiere Pro,After Effects,Dreamweaver,Prelude,Audition"
 
 TARGET_APP_CPU_WORD_SIZE="64"
 HELP_TARGET_APP_CPU_WORD_SIZE="CPU word size. Nearly always 64 bit."
@@ -56,3 +56,9 @@ HELP_TARGET_DIRNAME="This is a subfolder name used to store the script in the us
 
 PREFS_FILENAME=JSXSparkerPreferences.json
 HELP_PREFS_FILENAME="This is a file name name to store preferences in the preferences subfolder"
+
+# $!GENERATE_GUID!$ is a 'magical' string that gets replaced by a GUID when Sparker generates the project
+PHOTOSHOP_SCRIPT_GUID=$!GENERATE_GUID!$
+HELP_PHOTOSHOP_SCRIPT_GUID="This is the GUID to be used in the Photoshop menu entry. A random GUID was generated for you; it is best to leave this setting alone."
+IS_ADVANCED_PHOTOSHOP_SCRIPT_GUID=1
+

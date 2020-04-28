@@ -18,19 +18,14 @@ PUSHD "%PROJECT_ROOT_DIR%"
 
 IF NOT "%TARGET_SCRIPT_ROOT_DIR%" == "" (   
 
+    SET REMOVE_STUB=
     IF "%TARGET_APP%" == "Illustrator" (
-
-        REM For Illustrator we don't use a link; instead we use a one-line stub script
-
-        IF EXIST "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx" (
-
-            ECHO.
-            ECHO Removing Illustrator stub script "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx" 
-            ECHO.
-
-            DEL "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx"
-        )
         
+        SET REMOVE_STUB="1"
+    ) ELSE IF "%TARGET_APP%" == "Photoshop" (
+
+        SET REMOVE_STUB="1"
+
     ) ELSE (
 
         IF EXIST "%TARGET_SCRIPT_ROOT_DIR%" (
@@ -43,6 +38,19 @@ IF NOT "%TARGET_SCRIPT_ROOT_DIR%" == "" (
         )
     )
     
+    IF "%REMOVE_STUB%" == "1" (
+
+        REM For Illustrator and Photoshop we don't use a link; instead we use a one-line stub script
+
+        IF EXIST "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx" (
+
+            ECHO.
+            ECHO Removing %TARGET_APP% stub script "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx" 
+            ECHO.
+
+            DEL "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx"
+        )
+    )
 )
 
 IF NOT "%BUILD_DIR%" == "" (    
