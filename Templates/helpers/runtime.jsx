@@ -53,7 +53,7 @@ if (dreamweaver) {
             eval(script);
         }
         catch (err) {           
-            $$SHORTCODE$$.errorBeforeLoggingAvailable("hostscript.jsx loadScript throws " + err + " for " + fullPath);  
+            $$SHORTCODE$$.errorBeforeLoggingAvailable("runtime.jsx loadScript throws " + err + " for " + fullPath);  
         }
     }
 
@@ -70,7 +70,7 @@ else {
             eval(script);
         }
         catch (err) {           
-            $$SHORTCODE$$.errorBeforeLoggingAvailable("hostscript.jsx loadScript throws " + err + " for " + fullPath);  
+            $$SHORTCODE$$.errorBeforeLoggingAvailable("runtime.jsx loadScript throws " + err + " for " + fullPath);  
         }
     }
 

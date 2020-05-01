@@ -17,13 +17,13 @@ if [ "$TARGET_APP" == "Illustrator" -o "$TARGET_APP" == "Photoshop" ]; then
 
     # For Illustrator and Photoshop we don't use a link; instead we use a one-line stub script
     
-    if [ -e "${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.jsx" ]; then
+    if [ -e "${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.${TARGET_FILENAME_EXTENSION}" ]; then
 
         echo ""
-        echo "Removing $TARGET_APP stub script ${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.jsx" 
+        echo "Removing $TARGET_APP stub script ${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.${TARGET_FILENAME_EXTENSION}" 
         echo ""
 
-        rm -f "${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.jsx"
+        rm -f "${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.${TARGET_FILENAME_EXTENSION}"
     fi
 
 else

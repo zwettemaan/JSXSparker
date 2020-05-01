@@ -8,7 +8,7 @@
 $if "$$TARGET_APP_SPECIFIER$$" != ""
             "targetSpecifier": "$$TARGET_APP_SPECIFIER$$",
 $endif            
-            "program": "${workspaceFolder}/run.jsx",
+            "program": "${workspaceFolder}/$$DESPACED_TARGET_NAME$$.$$TARGET_FILENAME_EXTENSION$$",
 $if "$$USE_PERSISTENT_ENGINE$$" != "ON"
             "engineName": "main",
 $else

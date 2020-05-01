@@ -28,7 +28,7 @@ else
         cd "$PROJECT_ROOT_DIR"
 
         echo ""
-        echo "Double-click the run.jsx script in the Bridge window"
+        echo "Double-click the ${DESPACED_TARGET_NAME}.${TARGET_FILENAME_EXTENSION} script in the Bridge window"
         echo ""
         
         "${TARGET_APP_SCRIPT_DIR}/Adobe ${TARGET_APP} ${TARGET_CC_VERSION}.app/Contents/MacOS/Adobe ${TARGET_APP} ${TARGET_CC_VERSION}" `pwd` > /dev/null 2>&1 &
@@ -39,11 +39,11 @@ else
 
 
         echo ""
-        echo "Installing $TARGET_APP stub script ${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.jsx" 
+        echo "Installing $TARGET_APP stub script ${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.${TARGET_FILENAME_EXTENSION}" 
         echo "Make sure to quit and restart $TARGET_APP to make the script appear in the menu." 
         echo ""
 
-        echo "//@include \"${PROJECT_ROOT_DIR}run.jsx\"" > "${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.jsx"
+        echo "//@include \"${PROJECT_ROOT_DIR}${DESPACED_TARGET_NAME}.${TARGET_FILENAME_EXTENSION}\"" > "${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.${TARGET_FILENAME_EXTENSION}"
 
     else 
 
@@ -63,7 +63,7 @@ else
         echo "Creating temporary symbolic links to the script and its 'helpers' directory inside directory $TARGET_SCRIPT_ROOT_DIR"
         echo ""
 
-        ln -s "${PROJECT_ROOT_DIR}run.jsx" "${TARGET_SCRIPT_ROOT_DIR}run.jsx"
+        ln -s "${PROJECT_ROOT_DIR}${DESPACED_TARGET_NAME}.${TARGET_FILENAME_EXTENSION}" "${TARGET_SCRIPT_ROOT_DIR}${DESPACED_TARGET_NAME}.${TARGET_FILENAME_EXTENSION}"
         ln -s "${PROJECT_ROOT_DIR}helpers" "${TARGET_SCRIPT_ROOT_DIR}helpers"
 
     fi

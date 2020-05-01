@@ -34,7 +34,7 @@ IF NOT EXIST "%TARGET_APP_SCRIPT_DIR%" (
         CD "%PROJECT_ROOT_DIR%"
 
         ECHO.
-        ECHO Double-click the run.jsx script in the Bridge window
+        ECHO Double-click the %DESPACED_TARGET_NAME%.%TARGET_FILENAME_EXTENSION% script in the Bridge window
         ECHO.
 
         "%TARGET_APP_SCRIPT_DIR%Bridge.exe" "%cd%"
@@ -65,7 +65,7 @@ IF NOT EXIST "%TARGET_APP_SCRIPT_DIR%" (
         ECHO Creating temporary symbolic links to the script and its 'helpers' directory inside directory "%TARGET_SCRIPT_ROOT_DIR%"
         ECHO.
 
-        MKLINK /H "%TARGET_SCRIPT_ROOT_DIR%run.jsx" "%PROJECT_ROOT_DIR%run.jsx"
+        MKLINK /H "%TARGET_SCRIPT_ROOT_DIR%%DESPACED_TARGET_NAME%.%TARGET_FILENAME_EXTENSION%" "%PROJECT_ROOT_DIR%%DESPACED_TARGET_NAME%.%TARGET_FILENAME_EXTENSION%"
         MKLINK /J "%TARGET_SCRIPT_ROOT_DIR%helpers" "%PROJECT_ROOT_DIR%helpers"
 
         ECHO.
@@ -78,7 +78,7 @@ IF NOT EXIST "%TARGET_APP_SCRIPT_DIR%" (
         REM For Illustrator and Photoshop we don't use a link; instead we use a one-line stub script
 
         ECHO.
-        ECHO Starting an administrator shell to create %TARGET_APP% stub script "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx"
+        ECHO Starting an administrator shell to create %TARGET_APP% stub script "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.%TARGET_FILENAME_EXTENSION%"
         ECHO.
 
         ECHO @ECHO OFF > %TEMP%\sudocmd.bat
@@ -93,12 +93,12 @@ IF NOT EXIST "%TARGET_APP_SCRIPT_DIR%" (
 
         REM Need to escape backslashes in path
 
-        Powershell -Command "echo (\"ECHO //@include \"\"%PROJECT_ROOT_DIR%run.jsx\"\" ^> \"\"%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx\"\"\").Replace(\"\\\",\"\\\\\")" >> %TEMP%\sudocmd.bat 2> NUL
+        Powershell -Command "echo (\"ECHO //@include \"\"%PROJECT_ROOT_DIR%%DESPACED_TARGET_NAME%.%TARGET_FILENAME_EXTENSION%\"\" ^> \"\"%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.%TARGET_FILENAME_EXTENSION%\"\"\").Replace(\"\\\",\"\\\\\")" >> %TEMP%\sudocmd.bat 2> NUL
 
-        ECHO ICACLS "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx" /GRANT BUILTIN\Users:F ^>NUL 2^>^&1 >> %TEMP%\sudocmd.bat
+        ECHO ICACLS "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.%TARGET_FILENAME_EXTENSION%" /GRANT BUILTIN\Users:F ^>NUL 2^>^&1 >> %TEMP%\sudocmd.bat
         ECHO ECHO. >> %TEMP%\sudocmd.bat
         ECHO ECHO %TARGET_APP% stub script installed as: >> %TEMP%\sudocmd.bat
-        ECHO ECHO     "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.jsx" >> %TEMP%\sudocmd.bat
+        ECHO ECHO     "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.%TARGET_FILENAME_EXTENSION%" >> %TEMP%\sudocmd.bat
         ECHO ECHO. >> %TEMP%\sudocmd.bat
         ECHO ECHO You can close this administrative shell window now >> %TEMP%\sudocmd.bat
         ECHO ECHO. >> %TEMP%\sudocmd.bat

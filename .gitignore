@@ -1,6 +1,7 @@
 .DS_Store
-/run.jsx
-/ReadMe for JSX Sparker.md
+/*.jsx
+/*.js
+/ReadMe for *.md
 /BuildSettings/
 /helpers/
 /VSCode/

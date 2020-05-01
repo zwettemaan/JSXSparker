@@ -44,8 +44,8 @@ IF NOT EXIST "%PROJECT_ROOT_DIR%BuildSettings%" (
         ECHO Removing generated files
         ECHO.
 
-        DEL run.jsx
-        DEL "ReadMe for !TARGET_NAME!.md"
+        DEL "!DESPACED_TARGET_NAME!.!TARGET_FILENAME_EXTENSION!"
+        DEL "ReadMe for !DESPACED_TARGET_NAME!.md"
         RD /s /q BuildSettings >NUL 2>&1  
         RD /s /q helpers >NUL 2>&1
         RD /s /q .vscode >NUL 2>&1

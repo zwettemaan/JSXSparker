@@ -50,8 +50,8 @@ else
         echo "Removing generated files"
         echo ""
         
-        rm -f run.jsx
-        rm -f "ReadMe for $TARGET_NAME.md"
+        rm -f "$DESPACED_TARGET_NAME.$TARGET_FILENAME_EXTENSION"
+        rm -f "ReadMe for $DESPACED_TARGET_NAME.md"
         rm -rf BuildSettings
         rm -rf helpers
         rm -rf .vscode

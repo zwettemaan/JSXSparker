@@ -1,7 +1,10 @@
-﻿$include "targeting.jsx"
+﻿$include "targeting.ijs"
+
+$if "$$TARGET_APP_SELECTED$$" != "Dreamweaver"
 //@include "helpers/runtime.jsx"
 
 main();
+$endif
 
 function main() {
     
