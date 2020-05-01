@@ -1,8 +1,11 @@
 @ECHO OFF
+
 REM
 REM Remove locally created, compiled or derived data and attempt to 
 REM bring the project back to a 'clean slate'.
 REM
+
+SETLOCAL EnableDelayedExpansion
 
 IF "%JSXP_COMMANDS_DIR%" == "" (
     SET JSXP_COMMANDS_DIR=%~dp0
@@ -15,16 +18,32 @@ POPD
 CALL "%JSXP_COMMANDS_DIR%setTarget.bat"
 
 PUSHD "%PROJECT_ROOT_DIR%"
-
 IF NOT "%TARGET_SCRIPT_ROOT_DIR%" == "" (   
 
     SET REMOVE_STUB=
     IF "%TARGET_APP%" == "Illustrator" (
         
-        SET REMOVE_STUB="1"
+        SET REMOVE_STUB=1
+
     ) ELSE IF "%TARGET_APP%" == "Photoshop" (
 
-        SET REMOVE_STUB="1"
+        SET REMOVE_STUB=1
+
+    ) ELSE IF "%TARGET_APP%" == "Dreamweaver" (
+
+        ECHO.
+        ECHO Removing links from "%TARGET_APP_SCRIPT_DIR%"
+        ECHO.
+
+        IF EXIST "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.%TARGET_FILENAME_EXTENSION%" (
+            DEL "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.%TARGET_FILENAME_EXTENSION%" >NUL 2>&1
+        )
+        IF EXIST "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.htm" (
+            DEL "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.htm" >NUL 2>&1
+        )
+        IF EXIST "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%_helpers" (
+            RD "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%_helpers" >NUL 2>&1
+        )
 
     ) ELSE (
 
@@ -37,8 +56,8 @@ IF NOT "%TARGET_SCRIPT_ROOT_DIR%" == "" (
             RD /s /q "%TARGET_SCRIPT_ROOT_DIR%" >NUL 2>&1
         )
     )
-    
-    IF "%REMOVE_STUB%" == "1" (
+
+    IF "!REMOVE_STUB!" == "1" (
 
         REM For Illustrator and Photoshop we don't use a link; instead we use a one-line stub script
 

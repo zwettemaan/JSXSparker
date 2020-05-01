@@ -1,4 +1,5 @@
 @ECHO OFF
+
 REM
 REM Set up a bunch of environment variables
 REM

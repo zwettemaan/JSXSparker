@@ -41,11 +41,47 @@ IF NOT EXIST "%TARGET_APP_SCRIPT_DIR%" (
 
     ) ELSE IF "%TARGET_APP%" == "Illustrator" (
         
-        SET INSTALL_STUB=1        
+        SET INSTALL_STUB=1
 
     ) ELSE IF "%TARGET_APP%" == "Photoshop" (
         
         SET INSTALL_STUB=1
+
+    ) ELSE IF "%TARGET_APP%" == "Dreamweaver" (
+        
+        ECHO.
+        ECHO Starting an administrator shell to create links in %TARGET_APP_SCRIPT_DIR%
+        ECHO.
+
+        ECHO @ECHO OFF > %TEMP%\sudocmd.bat
+        ECHO ECHO. >> %TEMP%\sudocmd.bat
+        ECHO ECHO Creating links in %TARGET_SCRIPT_ROOT_DIR% by way of a separate administrative shell >> %TEMP%\sudocmd.bat
+        ECHO ECHO. >> %TEMP%\sudocmd.bat
+
+        REM Get rid of trailing \ in TARGET_APP_SCRIPT_DIR by changing then using current directory
+
+        ECHO CD %TARGET_APP_SCRIPT_DIR% >> %TEMP%\sudocmd.bat
+        ECHO ICACLS . /GRANT BUILTIN\Users:F ^>NUL 2^>^&1 >> %TEMP%\sudocmd.bat 
+
+        ECHO MKLINK /H "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.%TARGET_FILENAME_EXTENSION%" "%PROJECT_ROOT_DIR%%DESPACED_TARGET_NAME%.%TARGET_FILENAME_EXTENSION%" >> %TEMP%\sudocmd.bat
+        ECHO MKLINK /H "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.htm" "%PROJECT_ROOT_DIR%%DESPACED_TARGET_NAME%.htm" >> %TEMP%\sudocmd.bat
+        ECHO MKLINK /J "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%_helpers" "%PROJECT_ROOT_DIR%%DESPACED_TARGET_NAME%_helpers" >> %TEMP%\sudocmd.bat
+
+        ECHO ICACLS "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.%TARGET_FILENAME_EXTENSION%" /GRANT BUILTIN\Users:F ^>NUL 2^>^&1 >> %TEMP%\sudocmd.bat
+        ECHO ICACLS "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.htm" /GRANT BUILTIN\Users:F ^>NUL 2^>^&1 >> %TEMP%\sudocmd.bat
+        ECHO ICACLS "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%_helpers" /GRANT BUILTIN\Users:F ^>NUL 2^>^&1 >> %TEMP%\sudocmd.bat
+
+        ECHO ECHO. >> %TEMP%\sudocmd.bat
+        ECHO ECHO Links installed >> %TEMP%\sudocmd.bat
+        ECHO ECHO. >> %TEMP%\sudocmd.bat
+        ECHO ECHO You can close this administrative shell window now >> %TEMP%\sudocmd.bat
+        ECHO ECHO. >> %TEMP%\sudocmd.bat
+        ECHO ECHO Debug install done. >> %TEMP%\sudocmd.bat
+        ECHO ECHO. >> %TEMP%\sudocmd.bat
+
+        REM Launch administrative shell
+
+        Powershell -Command "Start-Process cmd \"/k %TEMP%\sudocmd.bat\" -Verb RunAs"
 
     ) ELSE (
 
