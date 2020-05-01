@@ -1,9 +1,11 @@
 ﻿$if "$$TARGET_APP_SELECTED$$" != "Any"
+
 $if "$$TARGET_CC_VERSION_SELECTED$$" == "Any"
 //@target $$TARGET_APP$$
 $else
 //@target $$TARGET_APP_SPECIFIER$$
 $endif
+
 $if "$$USE_PERSISTENT_ENGINE$$" == "ON"
 $if "$$TARGET_APP_SELECTED$$" == "InDesign"
 //@targetengine $$SHORTCODE$$_Engine
@@ -11,6 +13,7 @@ $elif "$$TARGET_APP_SELECTED$$" == "InCopy"
 //@targetengine $$SHORTCODE$$_Engine
 $endif
 $endif
+
 $if "$$TARGET_APP_SELECTED$$" == "Photoshop"
 /*
 @@@BUILDINFO@@@ $$TARGET_DIRNAME$$/run.jsx $$PROJECT_VERSION$$
@@ -24,10 +27,10 @@ defined in the top 10000 characters of the file,
 // BEGIN__HARVEST_EXCEPTION_ZSTRING
 
 <javascriptresource>
-<name>$$TARGET_NAME$$</name>
-<menu>scripts</menu>
-<enableinfo>true</enableinfo>
-<eventid>$$PHOTOSHOP_SCRIPT_GUID$$</eventid>
+    <name>$$TARGET_NAME$$</name>
+    <menu>$$PHOTOSHOP_MENU$$</menu>
+    <enableinfo>true</enableinfo>
+    <eventid>$$PHOTOSHOP_SCRIPT_GUID$$</eventid>
 </javascriptresource>
 
 // END__HARVEST_EXCEPTION_ZSTRING
@@ -45,4 +48,5 @@ defined in the top 10000 characters of the file,
 */
 
 $endif
+
 $endif
