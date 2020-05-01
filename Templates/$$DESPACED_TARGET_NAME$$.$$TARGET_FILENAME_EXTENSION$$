@@ -1,7 +1,6 @@
 ﻿$include "targeting.ijs"
-
 $if "$$TARGET_APP_SELECTED$$" != "Dreamweaver"
-//@include "helpers/runtime.jsx"
+//@include "$$DESPACED_TARGET_NAME$$_helpers/runtime.jsx"
 
 main();
 $endif

@@ -45,9 +45,10 @@ IF NOT EXIST "%PROJECT_ROOT_DIR%BuildSettings%" (
         ECHO.
 
         DEL "!DESPACED_TARGET_NAME!.!TARGET_FILENAME_EXTENSION!"
+        DEL "!DESPACED_TARGET_NAME!.htm"
         DEL "ReadMe for !DESPACED_TARGET_NAME!.md"
+        RD /s /q "!DESPACED_TARGET_NAME!_helpers" >NUL 2>&1
         RD /s /q BuildSettings >NUL 2>&1  
-        RD /s /q helpers >NUL 2>&1
         RD /s /q .vscode >NUL 2>&1
         RD /s /q VSCode >NUL 2>&1
 

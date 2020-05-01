@@ -9,12 +9,12 @@ if (! $$SHORTCODE$$) {
 $$SHORTCODE$$.LOG_CRITICAL_ERRORS = false;
 
 $$SHORTCODE$$.relativeFilePathsToLoad = [
-    "helpers/json2.jsx",
-    "helpers/globals.jsx",
-    "helpers/tweakableSettings.jsx",
-    "helpers/utils.jsx",
-    "helpers/pathUtils.jsx",
-    "helpers/init.jsx"
+    "$$DESPACED_TARGET_NAME$$_helpers/json2.jsx",
+    "$$DESPACED_TARGET_NAME$$_helpers/globals.jsx",
+    "$$DESPACED_TARGET_NAME$$_helpers/tweakableSettings.jsx",
+    "$$DESPACED_TARGET_NAME$$_helpers/utils.jsx",
+    "$$DESPACED_TARGET_NAME$$_helpers/pathUtils.jsx",
+    "$$DESPACED_TARGET_NAME$$_helpers/init.jsx"
 ];
 
 $$SHORTCODE$$.errorBeforeLoggingAvailable = function(error) {

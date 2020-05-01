@@ -18,13 +18,13 @@
         "TARGET_APP_SCRIPT_DIR_MAC": "/Applications/Adobe $$TARGET_APP$$ $$TARGET_CC_VERSION$$/configuration/Commands/",
         "TARGET_APP_SCRIPT_DIR_WINDOWS": "%PROGRAMFILES%\\Adobe\\Adobe $$TARGET_APP$$ $$TARGET_CC_VERSION$$\\configuration\\Commands\\",
         "TARGET_CC_VERSION": {
-            "Any": "21.0",
-            "2020": "21.0",
-            "CC 2019": "20.0",
-            "CC 2018": "19.0"
+            "Any": "20.0",
+            "2020": "20.0",
+            "CC 2019": "19.0",
+            "CC 2018": "18.0"
         }
-    }
-}   "InCopy":   {
+    },
+    "InCopy":   {
         "TARGET_APP_CODE": "AICY",
         "TARGET_FILENAME_EXTENSION": "jsx",
         "TARGET_APP_SCRIPT_DIR_MAC": "~/Library/Preferences/Adobe $$TARGET_APP$$/Version $$TARGET_INCOPY_VERSION$$/$$TARGET_CC_LANGUAGE_CODE$$/Scripts/Scripts Panel/",

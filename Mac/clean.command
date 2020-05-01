@@ -26,6 +26,19 @@ if [ "$TARGET_APP" == "Illustrator" -o "$TARGET_APP" == "Photoshop" ]; then
         rm -f "${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.${TARGET_FILENAME_EXTENSION}"
     fi
 
+elif [ "$TARGET_APP" == "Dreamweaver" ]; then
+
+    if [ -e "${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.${TARGET_FILENAME_EXTENSION}" ]; then
+
+        echo ""
+        echo "Removing links from ${TARGET_APP_SCRIPT_DIR}" 
+        echo ""
+
+        rm -f "${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.${TARGET_FILENAME_EXTENSION}"
+        rm -f "${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.htm"
+        rm -rf "${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}_helpers"
+    fi
+
 else
 
     if [ -d "$TARGET_SCRIPT_ROOT_DIR" ]; then

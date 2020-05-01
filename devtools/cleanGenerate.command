@@ -51,9 +51,10 @@ else
         echo ""
         
         rm -f "$DESPACED_TARGET_NAME.$TARGET_FILENAME_EXTENSION"
+        rm -f "$DESPACED_TARGET_NAME.htm"
         rm -f "ReadMe for $DESPACED_TARGET_NAME.md"
+        rm -rf ${DESPACED_TARGET_NAME}_helpers
         rm -rf BuildSettings
-        rm -rf helpers
         rm -rf .vscode
         rm -rf VSCode
 
