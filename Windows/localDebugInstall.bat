@@ -41,11 +41,11 @@ IF NOT EXIST "%TARGET_APP_SCRIPT_DIR%" (
 
     ) ELSE IF "%TARGET_APP%" == "Illustrator" (
         
-        SET INSTALL_STUB="1"        
+        SET INSTALL_STUB=1        
 
     ) ELSE IF "%TARGET_APP%" == "Photoshop" (
         
-        SET INSTALL_STUB="1"
+        SET INSTALL_STUB=1
 
     ) ELSE (
 
