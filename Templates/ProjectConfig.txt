@@ -41,10 +41,6 @@ HELP_TARGET_CC_LANGUAGE_CODE="The target Creative Cloud language code (needed to
 SELECT_TARGET_CC_LANGUAGE_CODE="en_US,cs_CZ,da_DK,de_DE,es_ES,es_MX,fi_FI,fr_CA,fr_FR,fr_MA,hu_HU,it_IT,ja_JP,ko_KR,nb_NO,nl_NL,pl_PL,pt_BR,ru_RU,sv_SE,tr_TR,uk_UA,zh_CN,zh_TW"
 IS_ADVANCED_TARGET_CC_LANGUAGE_CODE=1
 
-USE_PERSISTENT_ENGINE="OFF"
-SELECT_USE_PERSISTENT_ENGINE="ON,OFF"
-HELP_USE_PERSISTENT_ENGINE="For InDesign only; ignored for other target apps. Whether to use a persistent or non-persistent engine (i.e. 'main')"
-
 TARGET_NAME="JSX Sparker"
 HELP_TARGET_NAME="Human readable script name (e.g. for use in documentation)."
 
@@ -61,4 +57,12 @@ HELP_PREFS_FILENAME="This is a file name name to store preferences in the prefer
 PHOTOSHOP_SCRIPT_GUID=$!GENERATE_GUID!$
 HELP_PHOTOSHOP_SCRIPT_GUID="This is the GUID to be used in the Photoshop menu entry. A random GUID was generated for you; it is best to leave this setting alone."
 IS_ADVANCED_PHOTOSHOP_SCRIPT_GUID=1
+
+PHOTOSHOP_MENU=scripts
+HELP_PHOTOSHOP_MENU="Photoshop only; ignored for other target apps. Below which menu item should this script be listed in the Photoshop application."
+SELECT_PHOTOSHOP_MENU="generate,automate,scripts,filter"
+
+USE_PERSISTENT_ENGINE="OFF"
+SELECT_USE_PERSISTENT_ENGINE="ON,OFF"
+HELP_USE_PERSISTENT_ENGINE="InDesign only; ignored for other target apps. Whether to use a persistent or non-persistent engine (i.e. 'main')"
 

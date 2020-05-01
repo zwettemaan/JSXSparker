@@ -73,7 +73,7 @@ IF NOT EXIST "%TARGET_APP_SCRIPT_DIR%" (
         ECHO.
     )
 
-    IF "%INSTALL_STUB%" == "1" (
+    IF "!INSTALL_STUB!" == "1" (
 
         REM For Illustrator and Photoshop we don't use a link; instead we use a one-line stub script
 
