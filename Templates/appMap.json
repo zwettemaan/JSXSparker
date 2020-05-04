@@ -74,5 +74,15 @@
             "CC 2019": "20.0",
             "CC 2018": "19.0"
         }
+    },
+    "Premiere Pro": {
+        "TARGET_APP_CODE": "PPRO",
+        "TARGET_FILENAME_EXTENSION": "jsx",
+        "TARGET_CC_VERSION": {
+            "Any": "14.0",
+            "2020": "14.0",
+            "CC 2019": "13.0",
+            "CC 2018": "12.0"
+        }
     }
 }

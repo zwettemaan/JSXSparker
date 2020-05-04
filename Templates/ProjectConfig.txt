@@ -66,3 +66,5 @@ USE_PERSISTENT_ENGINE="OFF"
 SELECT_USE_PERSISTENT_ENGINE="ON,OFF"
 HELP_USE_PERSISTENT_ENGINE="InDesign only; ignored for other target apps. Whether to use a persistent or non-persistent engine (i.e. 'main')"
 
+APP_MAPPER_SCRIPT=
+IS_INTERNAL_APP_MAPPER_SCRIPT=1
