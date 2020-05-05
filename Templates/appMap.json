@@ -3,10 +3,18 @@
     "Bridge":   {
         "TARGET_APP_CODE": "KBRG",
         "TARGET_APP_SPECIFIER": "bridge",
+        /* 
+        * No TARGET_APP_SPECIFIER, TARGET_APP_FULL_SPECIFIER. Dreamweaver does not 
+        * support ExtendScript or ESTK/VSCode
+        */
         "TARGET_APP_FULL_SPECIFIER": "$$TARGET_APP_SPECIFIER$$-$$TARGET_APP_SPECIFIER_VERSION$$64",
         "TARGET_FILENAME_EXTENSION": "jsx",
         "TARGET_APP_SCRIPT_DIR_MAC": "/Applications/Adobe $$TARGET_APP$$ $$TARGET_CC_VERSION$$/",
         "TARGET_APP_SCRIPT_DIR_WINDOWS": "%ProgramFiles%\\Adobe\\Adobe $$TARGET_APP$$ $$TARGET_CC_VERSION$$\\",
+        /*
+        * TARGET_APP_SPECIFIER_VERSION matches TARGET_CC_VERSION, so no need to have a separate
+        * entry for TARGET_APP_SPECIFIER_VERSION
+        */
         "TARGET_CC_VERSION": {
             "Any": "10.0",
             "2020": "10.0",
@@ -17,8 +25,16 @@
     "Dreamweaver": {
         "TARGET_APP_CODE": "DRWV",
         "TARGET_FILENAME_EXTENSION": "js",
+        /* 
+        * No TARGET_APP_SPECIFIER, TARGET_APP_FULL_SPECIFIER. Dreamweaver does not 
+        * support ExtendScript or ESTK/VSCode
+        */
         "TARGET_APP_SCRIPT_DIR_MAC": "/Applications/Adobe $$TARGET_APP$$ $$TARGET_CC_VERSION$$/configuration/Commands/",
         "TARGET_APP_SCRIPT_DIR_WINDOWS": "%PROGRAMFILES%\\Adobe\\Adobe $$TARGET_APP$$ $$TARGET_CC_VERSION$$\\configuration\\Commands\\",
+        /*
+        * TARGET_APP_SPECIFIER_VERSION matches TARGET_CC_VERSION, so no need to have a separate
+        * entry for TARGET_APP_SPECIFIER_VERSION
+        */
         "TARGET_CC_VERSION": {
             "Any": "20.0",
             "2020": "20.0",
@@ -29,6 +45,9 @@
     "InCopy":   {
         "TARGET_APP_CODE": "AICY",
         "TARGET_APP_SPECIFIER": "incopy",
+        /* 
+        * TARGET_APP_FULL_SPECIFIER: need a '64' suffix with InCopy
+        */
         "TARGET_APP_FULL_SPECIFIER": "$$TARGET_APP_SPECIFIER$$-$$TARGET_APP_SPECIFIER_VERSION$$64",
         "TARGET_FILENAME_EXTENSION": "jsx",
         "TARGET_APP_SCRIPT_DIR_MAC": "~/Library/Preferences/Adobe $$TARGET_APP$$/Version $$TARGET_INCOPY_VERSION$$/$$TARGET_CC_LANGUAGE_CODE$$/Scripts/Scripts Panel/",
@@ -36,6 +55,10 @@
         "DOC_LINKS": [
             "https://www.adobe.io/apis/creativecloud/bridge.html"
         ],
+        /*
+        * TARGET_APP_SPECIFIER_VERSION matches TARGET_CC_VERSION, so no need to have a separate
+        * entry for TARGET_APP_SPECIFIER_VERSION
+        */
         "TARGET_CC_VERSION": {
             "Any": "15.0",
             "2020": "15.0",
@@ -46,10 +69,17 @@
     "InDesign": {
         "TARGET_APP_CODE": "IDSN",
         "TARGET_APP_SPECIFIER": "indesign",
+        /* 
+        * TARGET_APP_FULL_SPECIFIER: need a '64' suffix with InDesign
+        */
         "TARGET_APP_FULL_SPECIFIER": "$$TARGET_APP_SPECIFIER$$-$$TARGET_APP_SPECIFIER_VERSION$$64",
         "TARGET_FILENAME_EXTENSION": "jsx",
         "TARGET_APP_SCRIPT_DIR_MAC": "~/Library/Preferences/Adobe $$TARGET_APP$$/Version $$TARGET_INDESIGN_VERSION$$/$$TARGET_CC_LANGUAGE_CODE$$/Scripts/Scripts Panel/",
         "TARGET_APP_SCRIPT_DIR_WINDOWS": "%APPDATA%\\Adobe\\$$TARGET_APP$$\\Version $$TARGET_INDESIGN_VERSION$$\\$$TARGET_CC_LANGUAGE_CODE$$\\Scripts\\Scripts Panel\\",
+        /*
+        * TARGET_APP_SPECIFIER_VERSION matches TARGET_CC_VERSION, so no need to have a separate
+        * entry for TARGET_APP_SPECIFIER_VERSION
+        */
         "TARGET_CC_VERSION": {
             "Any": "15.0",
             "2020": "15.0",
@@ -60,10 +90,17 @@
     "Illustrator": {
         "TARGET_APP_CODE": "ILST",
         "TARGET_APP_SPECIFIER": "illustrator",
+        /* 
+        * TARGET_APP_FULL_SPECIFIER: need a '64' suffix with Illustrator
+        */
         "TARGET_APP_FULL_SPECIFIER": "$$TARGET_APP_SPECIFIER$$-$$TARGET_APP_SPECIFIER_VERSION$$64",
         "TARGET_FILENAME_EXTENSION": "jsx",
         "TARGET_APP_SCRIPT_DIR_MAC": "/Applications/Adobe $$TARGET_APP$$ $$TARGET_CC_VERSION$$/Presets.localized/$$TARGET_CC_LANGUAGE_CODE$$/Scripts/",
         "TARGET_APP_SCRIPT_DIR_WINDOWS": "%PROGRAMFILES%\\Adobe\\Adobe $$TARGET_APP$$ $$TARGET_CC_VERSION$$\\Presets\\$$TARGET_CC_LANGUAGE_CODE$$\\Scripts\\",
+        /*
+        * TARGET_APP_SPECIFIER_VERSION matches TARGET_CC_VERSION, so no need to have a separate
+        * entry for TARGET_APP_SPECIFIER_VERSION
+        */
         "TARGET_CC_VERSION": {
             "Any": "24.0",
             "2020": "24.0",
@@ -74,6 +111,9 @@
     "Photoshop": {
         "TARGET_APP_CODE": "PHSH",
         "TARGET_APP_SPECIFIER": "photoshop",
+        /* 
+        * TARGET_APP_FULL_SPECIFIER: need a '64' suffix with Photoshop
+        */
         "TARGET_APP_FULL_SPECIFIER": "$$TARGET_APP_SPECIFIER$$-$$TARGET_APP_SPECIFIER_VERSION$$64",
         "TARGET_FILENAME_EXTENSION": "jsx",
         "TARGET_APP_SCRIPT_DIR_MAC": "/Applications/Adobe $$TARGET_APP$$ $$TARGET_CC_VERSION$$/Presets/Scripts/",
@@ -94,10 +134,17 @@
     "Premiere Pro": {
         "TARGET_APP_CODE": "PPRO",
         "TARGET_APP_SPECIFIER": "premierepro",
+        /* 
+        * TARGET_APP_FULL_SPECIFIER: no '64' suffix with Premiere Pro 
+        */
         "TARGET_APP_FULL_SPECIFIER": "$$TARGET_APP_SPECIFIER$$-$$TARGET_APP_SPECIFIER_VERSION$$",
         "TARGET_FILENAME_EXTENSION": "jsx",
         "TARGET_APP_SCRIPT_DIR_MAC": "~/Documents/Adobe Scripts/$$TARGET_APP$$/",
         "TARGET_APP_SCRIPT_DIR_WINDOWS": "%USERPROFILE%\\Adobe Scripts\\$$TARGET_APP$$\\",
+        /*
+        * TARGET_APP_SPECIFIER_VERSION matches TARGET_CC_VERSION, so no need to have a separate
+        * entry for TARGET_APP_SPECIFIER_VERSION
+        */
         "TARGET_CC_VERSION": {
             "Any": "14.0",
             "2020": "14.0",
