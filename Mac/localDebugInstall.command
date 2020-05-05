@@ -13,6 +13,18 @@ export JSXP_COMMANDS_DIR=`pwd`/
 
 . setTarget.command
 
+if [ "$TARGET_APP" == "Premiere Pro" ]; then
+
+    if [ ! -d "$ADOBE_SCRIPTS_DIR" ]; then
+        mkdir "$ADOBE_SCRIPTS_DIR"
+    fi
+
+    if [ ! -d "$TARGET_APP_SCRIPT_DIR" ]; then
+        mkdir "$TARGET_APP_SCRIPT_DIR"
+    fi
+
+fi
+
 if [ ! -d "$TARGET_APP_SCRIPT_DIR" ]; then
 
     echo ""
@@ -32,6 +44,28 @@ else
         echo ""
         
         "${TARGET_APP_SCRIPT_DIR}/Adobe ${TARGET_APP} ${TARGET_CC_VERSION}.app/Contents/MacOS/Adobe ${TARGET_APP} ${TARGET_CC_VERSION}" `pwd` > /dev/null 2>&1 &
+
+    elif [ "$TARGET_APP" == "Premiere Pro" ]; then
+
+        echo ""
+        echo "Use the Script Runner panel (Window - Extensions - Script Runner) to run the script"
+        echo ""
+        
+        cd "$EXTENSION_DIR"
+
+        if [ ! -d "$SCRIPT_RUNNER_NAME" ]; then
+            rm -rf "$TEMP_SCRIPT_RUNNER_NAME"
+            mkdir "$TEMP_SCRIPT_RUNNER_NAME"
+            cd "$TEMP_SCRIPT_RUNNER_NAME"
+            unzip "${PROJECT_ROOT_DIR}devtools/RorohikoScriptRunner.*.zxp"
+        fi
+
+        echo ""
+        echo "Installing $TARGET_APP stub script ${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.${TARGET_FILENAME_EXTENSION}" 
+        echo "Make sure to quit and restart $TARGET_APP to make the script appear in the menu." 
+        echo ""
+
+        echo "//@include \"${PROJECT_ROOT_DIR}${DESPACED_TARGET_NAME}.${TARGET_FILENAME_EXTENSION}\"" > "${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.${TARGET_FILENAME_EXTENSION}"
 
     elif [ "$TARGET_APP" == "Dreamweaver" ]; then
 

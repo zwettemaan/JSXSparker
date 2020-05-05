@@ -5,20 +5,26 @@
             "type": "extendscript-debug",
             "request": "launch",
             "name": "$$TARGET_NAME$$",
-$if "$$TARGET_APP_SPECIFIER$$" != ""
-            "targetSpecifier": "$$TARGET_APP_SPECIFIER$$",
+$if "$$TARGET_APP_FULL_SPECIFIER$$" != ""
+            "targetSpecifier": "$$TARGET_APP_FULL_SPECIFIER$$",
 $endif            
             "program": "${workspaceFolder}/$$DESPACED_TARGET_NAME$$.$$TARGET_FILENAME_EXTENSION$$",
 $if "$$USE_PERSISTENT_ENGINE$$" != "ON"
+$if "$$TARGET_APP$$" == "Premiere Pro"
+            "engineName": "NewWorld",
+$else
             "engineName": "main",
+$endif            
 $else
 $if "$$TARGET_APP$$" == "InDesign"
             "engineName": "$$SHORTCODE$$_Engine",
 $elif "$$TARGET_APP$$" == "InCopy"
             "engineName": "$$SHORTCODE$$_Engine",
+$elif "$$TARGET_APP$$" == "Premiere Pro"
+            "engineName": "NewWorld",
 $else
             "engineName": "main",
-$endif
+$endif            
 $endif
             "dontBreakOnErrors": false,
             "extensionMode": "passive",

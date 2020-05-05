@@ -13,9 +13,9 @@ export JSXP_COMMANDS_DIR=`pwd`/
 
 . setTarget.command
 
-if [ "$TARGET_APP" == "Illustrator" -o "$TARGET_APP" == "Photoshop" ]; then
+if [ "$TARGET_APP" == "Illustrator" -o "$TARGET_APP" == "Photoshop" -o "$TARGET_APP" == "Premiere Pro" ]; then
 
-    # For Illustrator and Photoshop we don't use a link; instead we use a one-line stub script
+    # For Illustrator, Photoshop and Premiere Pro we don't use a link; instead we use a one-line stub script
     
     if [ -e "${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.${TARGET_FILENAME_EXTENSION}" ]; then
 
@@ -60,6 +60,9 @@ if [ "$BUILD_DIR" != "" -a -d "$BUILD_DIR" ]; then
 
     rm -rf "$BUILD_DIR"
 fi
+
+cd "$EXTENSION_DIR"
+rm -rf "$TEMP_SCRIPT_RUNNER_NAME"
 
 if [ "$NESTED" == "" ]; then
     echo ""
