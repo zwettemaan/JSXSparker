@@ -41,3 +41,5 @@ dependencies:
 - VSCode with the Adobe ExtendScript Debugger plug-in installed
 
 Make sure to consult the [JSXSparker Documentation](https://github.com/zwettemaan/JSXSparker/wiki/JSXSparker-Documentation)
+
+This project uses the Sparker application. More info here: https://github.com/zwettemaan/Sparker
