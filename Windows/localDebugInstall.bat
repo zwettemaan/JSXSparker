@@ -81,7 +81,11 @@ IF NOT EXIST "%TARGET_APP_SCRIPT_DIR%" (
         ECHO Make sure to quit and restart %TARGET_APP% to make the Script Runner extension appear in the Extensions menu.
         ECHO.
 
-        ECHO //@include "%PROJECT_ROOT_DIR%%DESPACED_TARGET_NAME%.%TARGET_FILENAME_EXTENSION%" > "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.%TARGET_FILENAME_EXTENSION%"
+        REM
+        REM Need to escape backslashes in path
+        REM
+
+        Powershell -Command "echo (\"//@include \"\"%PROJECT_ROOT_DIR%%DESPACED_TARGET_NAME%.%TARGET_FILENAME_EXTENSION%\"\"\").Replace(\"\\\",\"\\\\\")" > "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.%TARGET_FILENAME_EXTENSION%"
 
     ) ELSE IF "%TARGET_APP%" == "Dreamweaver" (
         
