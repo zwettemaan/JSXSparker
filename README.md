@@ -9,7 +9,7 @@ Starter project for running and debugging JSX with Adobe applications and VSCode
 © 2018-2020, Rorohiko Ltd. - Kris Coppieters
 kris@rorohiko.com
 
-v1.0.3, April 15, 2020
+v1.0.4, May 6, 2020
 
 ## Preamble
 
