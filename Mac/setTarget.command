@@ -27,15 +27,14 @@ if [ ! -e "${PROJECT_ROOT_DIR}BuildSettings/configSettings.command" ]; then
 
 fi
 
-export BUILD_SETTINGS_DIR="${PROJECT_ROOT_DIR}BuildSettings/"
-export BUILD_DIR="${PROJECT_ROOT_DIR}build/"
-
 export EXTENSION_DIR="${USER_HOME_DIR}Library/Application Support/Adobe/CEP/extensions/"
 export SCRIPT_RUNNER_NAME="Rorohiko Script Runner"
 export TEMP_SCRIPT_RUNNER_NAME="${SCRIPT_RUNNER_NAME}_JSXSparker_DEBUG"
-
 export DOCUMENTS_DIR="${USER_HOME_DIR}Documents/"
 export ADOBE_SCRIPTS_DIR="${DOCUMENTS_DIR}Adobe Scripts"
+
+export BUILD_SETTINGS_DIR="${PROJECT_ROOT_DIR}BuildSettings/"
+export BUILD_DIR="${PROJECT_ROOT_DIR}build/"
 
 . "$BUILD_SETTINGS_DIR/configSettings.command"
 . "$BUILD_SETTINGS_DIR/buildSettings.command"

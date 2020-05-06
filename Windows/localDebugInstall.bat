@@ -18,6 +18,18 @@ CALL setTarget.bat
 
 PUSHD "%PROJECT_ROOT_DIR%"
 
+IF "%TARGET_APP%" == "Premiere Pro" (
+
+    IF NOT EXIST "%ADOBE_SCRIPTS_DIR%" (
+        MKDIR "%ADOBE_SCRIPTS_DIR%"
+    )
+
+    IF NOT EXIST "%TARGET_APP_SCRIPT_DIR%" (
+        MKDIR "%TARGET_APP_SCRIPT_DIR%"
+    )
+
+)
+
 IF NOT EXIST "%TARGET_APP_SCRIPT_DIR%" (
 
     ECHO.
@@ -46,6 +58,30 @@ IF NOT EXIST "%TARGET_APP_SCRIPT_DIR%" (
     ) ELSE IF "%TARGET_APP%" == "Photoshop" (
         
         SET INSTALL_STUB=1
+
+    ) ELSE IF "%TARGET_APP%" == "Premiere Pro" (
+        
+        ECHO.
+        ECHO Use the Script Runner panel under the Extensions menu item to run the script
+        ECHO.
+        
+        PUSHD "%EXTENSION_DIR%"
+
+        IF NOT EXIST "%SCRIPT_RUNNER_NAME%" (
+            RD /s /q "%TEMP_SCRIPT_RUNNER_NAME%" >NUL 2>&1
+            FOR %%Z IN ("%PROJECT_ROOT_DIR%devtools\RorohikoScriptRunner.*.zxp") DO COPY /Y "%%Z" "%TEMP%\RorohikoScriptRunner.zip" >NUL 2>&1
+            Powershell -Command "Expand-Archive -LiteralPath '%TEMP%/RorohikoScriptRunner.zip' -DestinationPath '%EXTENSION_DIR%%TEMP_SCRIPT_RUNNER_NAME%'"
+            DEL "%TEMP%\RorohikoScriptRunner.zip"
+        )
+
+        POPD 
+
+        ECHO.
+        ECHO Installing %TARGET_APP% stub script %TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.%TARGET_FILENAME_EXTENSION% 
+        ECHO Make sure to quit and restart %TARGET_APP% to make the Script Runner extension appear in the Extensions menu.
+        ECHO.
+
+        ECHO //@include "%PROJECT_ROOT_DIR%%DESPACED_TARGET_NAME%.%TARGET_FILENAME_EXTENSION%" > "%TARGET_APP_SCRIPT_DIR%%DESPACED_TARGET_NAME%.%TARGET_FILENAME_EXTENSION%"
 
     ) ELSE IF "%TARGET_APP%" == "Dreamweaver" (
         

@@ -29,6 +29,10 @@ IF NOT "%TARGET_SCRIPT_ROOT_DIR%" == "" (
 
         SET REMOVE_STUB=1
 
+    ) ELSE IF "%TARGET_APP%" == "Premiere Pro" (
+
+        SET REMOVE_STUB=1
+
     ) ELSE IF "%TARGET_APP%" == "Dreamweaver" (
 
         ECHO.
@@ -82,6 +86,20 @@ IF NOT "%BUILD_DIR%" == "" (
 
         RD /s /q "%BUILD_DIR%" >NUL 2>&1
     )
+)
+
+REM
+REM Get rid of temporary extension
+REM
+
+cd "%EXTENSION_DIR%"
+IF EXIST "%TEMP_SCRIPT_RUNNER_NAME%" (
+
+    ECHO.
+    ECHO Removing temporary script runner extension
+    ECHO.
+
+    RD /s /q "%TEMP_SCRIPT_RUNNER_NAME%" >NUL 2>&1
 )
 
 POPD

@@ -62,7 +62,14 @@ if [ "$BUILD_DIR" != "" -a -d "$BUILD_DIR" ]; then
 fi
 
 cd "$EXTENSION_DIR"
-rm -rf "$TEMP_SCRIPT_RUNNER_NAME"
+if [ -d "$TEMP_SCRIPT_RUNNER_NAME" ]; then
+    
+    echo ""
+    echo "Removing temporary script runner extension"
+    echo ""
+
+    rm -rf "$TEMP_SCRIPT_RUNNER_NAME"
+fi
 
 if [ "$NESTED" == "" ]; then
     echo ""
