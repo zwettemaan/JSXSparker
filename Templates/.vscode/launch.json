@@ -12,6 +12,10 @@ $endif
 $if "$$USE_PERSISTENT_ENGINE$$" != "ON"
 $if "$$TARGET_APP$$" == "Premiere Pro"
             "engineName": "NewWorld",
+$elif "$$TARGET_APP$$" == "Bridge"
+            "engineName": "MainEngine",
+$elif "$$TARGET_APP$$" == "Adobe Media Encoder"
+            "engineName": "NewWorld",
 $else
             "engineName": "main",
 $endif            
@@ -21,6 +25,10 @@ $if "$$TARGET_APP$$" == "InDesign"
 $elif "$$TARGET_APP$$" == "InCopy"
             "engineName": "$$SHORTCODE$$_Engine",
 $elif "$$TARGET_APP$$" == "Premiere Pro"
+            "engineName": "NewWorld",
+$elif "$$TARGET_APP$$" == "Bridge"
+            "engineName": "MainEngine",
+$elif "$$TARGET_APP$$" == "Adobe Media Encoder"
             "engineName": "NewWorld",
 $else
             "engineName": "main",
