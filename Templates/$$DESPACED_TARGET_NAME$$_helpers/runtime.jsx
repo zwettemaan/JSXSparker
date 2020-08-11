@@ -76,11 +76,13 @@ else {
 
 }
 
-$$SHORTCODE$$.initScript = function initScript(extensionDir) {
+$$SHORTCODE$$.initScript = function initScript() {
+
+    var scriptDir = File($.fileName).parent.parent + "/";
 
     for (var idx = 0; idx < $$SHORTCODE$$.relativeFilePathsToLoad.length; idx++) {
         var filePath = $$SHORTCODE$$.relativeFilePathsToLoad[idx];
-        $$SHORTCODE$$.loadScript(extensionDir, filePath);
+        $$SHORTCODE$$.loadScript(scriptDir, filePath);
     }
 
 }

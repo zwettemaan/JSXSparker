@@ -5,8 +5,15 @@ if ("undefined" == typeof $$SHORTCODE$$) {
     $$SHORTCODE$$ = {};
 }
 
-$$SHORTCODE$$.shallowClone = function shallowClone(obj) 
-{
+$$SHORTCODE$$.startsWith = function startsWith(in_s, in_start) {
+    return in_s.substr(0, in_start.length) == in_start;
+}
+
+$$SHORTCODE$$.endsWith = function endsWith(in_s, in_end) {
+    return in_s.substr(- in_end.length) == in_end;
+};
+
+$$SHORTCODE$$.shallowClone = function shallowClone(obj) {
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
     $$SHORTCODE$$.logEntry(arguments);
     $endif
@@ -23,8 +30,7 @@ $$SHORTCODE$$.shallowClone = function shallowClone(obj)
     return retVal;
 }
 
-$$SHORTCODE$$.deepClone = function deepClone(obj) 
-{
+$$SHORTCODE$$.deepClone = function deepClone(obj) {
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
     $$SHORTCODE$$.logEntry(arguments);
     $endif
