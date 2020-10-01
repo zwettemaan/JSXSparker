@@ -14,11 +14,13 @@ $$SHORTCODE$$.endsWith = function endsWith(in_s, in_end) {
 };
 
 $$SHORTCODE$$.shallowClone = function shallowClone(obj) {
+
+    var retVal = {};
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
+
     $$SHORTCODE$$.logEntry(arguments);
     $endif
 
-    var retVal = {};
     for (var x in obj) 
     {
         retVal[x] = obj[x];
@@ -26,16 +28,19 @@ $$SHORTCODE$$.shallowClone = function shallowClone(obj) {
 
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
     $$SHORTCODE$$.logExit(arguments);
+
     $endif
     return retVal;
 }
 
 $$SHORTCODE$$.deepClone = function deepClone(obj) {
+
+    var retVal;
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
+
     $$SHORTCODE$$.logEntry(arguments);
     $endif
 
-    var retVal;
     if (obj instanceof Array) {
         retVal = [];
     }
@@ -57,6 +62,7 @@ $$SHORTCODE$$.deepClone = function deepClone(obj) {
 
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
     $$SHORTCODE$$.logExit(arguments);
+
     $endif
     return retVal;
 }
@@ -125,14 +131,17 @@ $$SHORTCODE$$.logTrace = function(reportingFunctionArguments, s) {
 
 $$SHORTCODE$$.checkMac = function checkMac() {
     
+    var retVal;
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
+
     $$SHORTCODE$$.logEntry(arguments);
     $endif
 
-    var retVal = $.os.substr(0,3) == "Mac";
+    retVal = $.os.substr(0,3) == "Mac";
 
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
     $$SHORTCODE$$.logExit(arguments);
+    
     $endif
 
     return retVal;

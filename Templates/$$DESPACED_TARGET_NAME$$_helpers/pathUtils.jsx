@@ -11,7 +11,9 @@ if (! $$SHORTCODE$$.path) {
 
 $$SHORTCODE$$.path.basename = function basename(filepath, separator) {
     
+    var endSegment;
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
+
     $$SHORTCODE$$.logEntry(arguments);
     $endif
 
@@ -22,20 +24,22 @@ $$SHORTCODE$$.path.basename = function basename(filepath, separator) {
     // toString() handles cases where filepath is an ExtendScript File/Folder object
     var splitPath = filepath.toString().split(separator);
     do {
-        var endSegment = splitPath.pop();   
+        endSegment = splitPath.pop();   
     }
     while (splitPath.length > 0 && endSegment == "");
 
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
     $$SHORTCODE$$.logExit(arguments);
-    $endif
 
+    $endif
     return endSegment;
 };
 
 $$SHORTCODE$$.path.dirname = function dirname(filepath, separator) {
     
+    var retVal;
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
+
     $$SHORTCODE$$.logEntry(arguments);
     $endif
 
@@ -50,18 +54,20 @@ $$SHORTCODE$$.path.dirname = function dirname(filepath, separator) {
     }
     while (splitPath.length > 0 && endSegment == "");
 
-    var retVal = splitPath.join(separator);
+    retVal = splitPath.join(separator);
 
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
     $$SHORTCODE$$.logExit(arguments);
-    $endif
 
+    $endif
     return retVal;
 };
 
 $$SHORTCODE$$.path.filenameExtension = function filenameExtension(filepath, separator) {
     
+    var retVal;
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
+
     $$SHORTCODE$$.logEntry(arguments);
     $endif
 
@@ -71,31 +77,38 @@ $$SHORTCODE$$.path.filenameExtension = function filenameExtension(filepath, sepa
         extension = splitName.pop();
     }
 
-    var retVal = extension.toLowerCase();
+    retVal = extension.toLowerCase();
 
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
     $$SHORTCODE$$.logExit(arguments);
-    $endif
 
+    $endif
     return retVal;
 };
 
 $$SHORTCODE$$.path.exists = function exists(filepath) {
+
+    var retVal;
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
+
     $$SHORTCODE$$.logEntry(arguments);
     $endif
 
     var f = File(filepath);
-    var retVal = f.exists;
+    retVal = f.exists;
 
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
     $$SHORTCODE$$.logExit(arguments);
+
     $endif
     return retVal;
 };
 
 $$SHORTCODE$$.path.isDir = function isDir(folderPath) {
+
+    var retVal;
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
+
     $$SHORTCODE$$.logEntry(arguments);
     $endif
     
@@ -104,10 +117,11 @@ $$SHORTCODE$$.path.isDir = function isDir(folderPath) {
 
     var folder = Folder(folderPath);
 
-    var retVal = (folder instanceof Folder);
+    retVal = (folder instanceof Folder);
 
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
     $$SHORTCODE$$.logExit(arguments);
+
     $endif
     return retVal;
 };
@@ -116,6 +130,7 @@ $$SHORTCODE$$.path.mkdir = function mkdir(folderPath, separator) {
 
     var success = false;
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
+
     $$SHORTCODE$$.logEntry(arguments);
     $endif
 
@@ -150,6 +165,7 @@ $$SHORTCODE$$.path.mkdir = function mkdir(folderPath, separator) {
 
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
     $$SHORTCODE$$.logExit(arguments);
+    
     $endif  
     return success;
 };
