@@ -63,7 +63,7 @@ $$SHORTCODE$$.path.dirname = function dirname(filepath, separator) {
     return retVal;
 };
 
-$$SHORTCODE$$.path.filenameExtension = function filenameExtension(filepath, separator) {
+$$SHORTCODE$$.path.filenameExtension = function filenameExtension(filepath) {
     
     var retVal;
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"

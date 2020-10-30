@@ -15,16 +15,45 @@ $$SHORTCODE$$.endsWith = function endsWith(in_s, in_end) {
 
 $$SHORTCODE$$.shallowClone = function shallowClone(obj) {
 
-    var retVal = {};
+    var retVal = undefined;
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
 
     $$SHORTCODE$$.logEntry(arguments);
     $endif
 
-    for (var x in obj) 
-    {
-        retVal[x] = obj[x];
+    do {
+        try {
+
+            if ("object" != typeof obj) {
+                retVal = obj;
+                break;
+            }
+
+            if (! obj) {
+                retVal = obj;
+                break;
+            }
+
+            var clone;
+            if (obj instanceof Array) {
+                clone = [];
+            }
+            else {
+                clone = {};        
+            }
+
+            for (var x in obj) 
+            {
+                clone[x] = obj[x];
+            }
+
+            retVal = clone;
+        }
+        catch (err) {
+            $$SHORTCODE$$.logError(arguments, "throws " + err);
+        }
     }
+    while (false);
 
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
     $$SHORTCODE$$.logExit(arguments);
@@ -35,30 +64,53 @@ $$SHORTCODE$$.shallowClone = function shallowClone(obj) {
 
 $$SHORTCODE$$.deepClone = function deepClone(obj) {
 
-    var retVal;
+    var retVal = undefined;
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
 
     $$SHORTCODE$$.logEntry(arguments);
     $endif
 
-    if (obj instanceof Array) {
-        retVal = [];
-    }
-    else {
-        retVal = {};        
-    }
-    for (var x in obj) 
-    {
-        var val = obj[x];
-        if (typeof val == "object")
-        {
-            retVal[x] = $$SHORTCODE$$.deepClone(val);
+    do {
+        try {
+            
+            if ("object" != typeof obj) {
+                retVal = obj;
+                break;
+            }
+
+            if (! obj) {
+                retVal = obj;
+                break;
+            }
+
+            var clone;
+            if (obj instanceof Array) {
+                clone = [];
+            }
+            else {
+                clone = {};        
+            }
+
+            for (var x in obj) 
+            {
+                var val = obj[x];
+                if (typeof val == "object")
+                {
+                    clone[x] = $$SHORTCODE$$.deepClone(val);
+                }
+                else
+                {
+                    clone[x] = val;
+                }
+            }
+
+            retVal = clone;
         }
-        else
-        {
-            retVal[x] = val;
+        catch (err) {
+            $$SHORTCODE$$.logError(arguments, "throws " + err);
         }
     }
+    while (false);
 
     $if "$$ENABLE_LOG_ENTRY_EXIT$$" == "ON"
     $$SHORTCODE$$.logExit(arguments);
