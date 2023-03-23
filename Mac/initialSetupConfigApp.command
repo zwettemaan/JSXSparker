@@ -2,11 +2,11 @@
 # De-quarantine the configuration app
 #
 
-if [ "$JSXP_COMMANDS_DIR" == "" -o ! -d "$JSXP_COMMANDS_DIR" ]; then
+if [ "${JSXP_COMMANDS_DIR}" == "" -o ! -d "${JSXP_COMMANDS_DIR}" ]; then
 	export JSXP_COMMANDS_DIR=`dirname "$0"`/
 fi
 
-pushd "$JSXP_COMMANDS_DIR" > /dev/null
+pushd "${JSXP_COMMANDS_DIR}" > /dev/null
 
 export JSXP_COMMANDS_DIR=`pwd`/
 

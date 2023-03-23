@@ -92,14 +92,16 @@ REM
 REM Get rid of temporary extension
 REM
 
-cd "%EXTENSION_DIR%"
-IF EXIST "%TEMP_SCRIPT_RUNNER_NAME%" (
+IF EXIST "%EXTENSION_DIR%" (
+    CD "%EXTENSION_DIR%"
+    IF EXIST "%TEMP_SCRIPT_RUNNER_NAME%" (
 
-    ECHO.
-    ECHO Removing temporary script runner extension
-    ECHO.
+        ECHO.
+        ECHO Removing temporary script runner extension
+        ECHO.
 
-    RD /s /q "%TEMP_SCRIPT_RUNNER_NAME%" >NUL 2>&1
+        RD /s /q "%TEMP_SCRIPT_RUNNER_NAME%" >NUL 2>&1
+    )
 )
 
 POPD

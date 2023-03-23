@@ -3,15 +3,15 @@
 # environment variables based on the retrieved info.
 #
 
-if [ "$JSXP_COMMANDS_DIR" == "" -o ! -d "$JSXP_COMMANDS_DIR" ]; then
+if [ "${JSXP_COMMANDS_DIR}" == "" -o ! -d "${JSXP_COMMANDS_DIR}" ]; then
         export JSXP_COMMANDS_DIR=`dirname "$0"`/
 fi
 
-pushd "$JSXP_COMMANDS_DIR" > /dev/null
+pushd "${JSXP_COMMANDS_DIR}" > /dev/null
 
 export JSXP_COMMANDS_DIR=`pwd`/
 
-export PROJECT_ROOT_DIR=`dirname "$JSXP_COMMANDS_DIR"`/
+export PROJECT_ROOT_DIR=`dirname "${JSXP_COMMANDS_DIR}"`/
 
 export USER_HOME_DIR=~/
 
@@ -36,22 +36,22 @@ export ADOBE_SCRIPTS_DIR="${DOCUMENTS_DIR}Adobe Scripts"
 export BUILD_SETTINGS_DIR="${PROJECT_ROOT_DIR}BuildSettings/"
 export BUILD_DIR="${PROJECT_ROOT_DIR}build/"
 
-. "$BUILD_SETTINGS_DIR/configSettings.command"
-. "$BUILD_SETTINGS_DIR/buildSettings.command"
+. "${BUILD_SETTINGS_DIR}/configSettings.command"
+. "${BUILD_SETTINGS_DIR}/buildSettings.command"
 
-if [ "$TARGET_APP" == "Illustrator" ]; then
-    "${JSXP_COMMANDS_DIR}makeScriptsFolderAccessible.command" "$TARGET_APP_SCRIPT_DIR"
+if [ "${TARGET_APP}" == "Illustrator" ]; then
+    "${JSXP_COMMANDS_DIR}makeScriptsFolderAccessible.command" "${TARGET_APP_SCRIPT_DIR}"
 fi
 
-if [ "$TARGET_APP" == "Photoshop" ]; then
-    "${JSXP_COMMANDS_DIR}makeScriptsFolderAccessible.command" "$TARGET_APP_SCRIPT_DIR"
+if [ "${TARGET_APP}" == "Photoshop" ]; then
+    "${JSXP_COMMANDS_DIR}makeScriptsFolderAccessible.command" "${TARGET_APP_SCRIPT_DIR}"
 fi
 
-if [ "$TARGET_APP" == "Dreamweaver" ]; then
-    "${JSXP_COMMANDS_DIR}makeScriptsFolderAccessible.command" "$TARGET_APP_SCRIPT_DIR"
+if [ "${TARGET_APP}" == "Dreamweaver" ]; then
+    "${JSXP_COMMANDS_DIR}makeScriptsFolderAccessible.command" "${TARGET_APP_SCRIPT_DIR}"
 fi
 
-if [ "$TARGET_APP_SCRIPT_DIR" != "" -a "$TARGET_DIRNAME" != "" ]; then
+if [ "${TARGET_APP_SCRIPT_DIR}" != "" -a "${TARGET_DIRNAME}" != "" ]; then
 
     export TARGET_SCRIPT_ROOT_DIR="${TARGET_APP_SCRIPT_DIR}${TARGET_DIRNAME}/"
 
