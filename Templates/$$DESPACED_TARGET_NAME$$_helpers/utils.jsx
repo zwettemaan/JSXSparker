@@ -5,6 +5,10 @@ if ("undefined" == typeof $$SHORTCODE$$) {
     $$SHORTCODE$$ = {};
 }
 
+$$SHORTCODE$$.alert = function(msg) {
+    alert(msg);
+}
+
 $$SHORTCODE$$.startsWith = function startsWith(in_s, in_start) {
     return in_s.substr(0, in_start.length) == in_start;
 }
