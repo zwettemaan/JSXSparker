@@ -1,17 +1,6 @@
-﻿$include "targeting.ijs"
-$if "$$TARGET_APP_SELECTED$$" != "Dreamweaver"
-//@include "$$DESPACED_TARGET_NAME$$_helpers/runtime.jsx"
+﻿//@include "CreativeDeveloperTools_ES/crdtesDLLLoader.jsx"
+//@include "CreativeDeveloperTools_ES/crdtes.jsx"
 
-main();
-$endif
+CST.SCRIPT_ROOT_FOLDER = Folder($.fileName).parent;
 
-function main() {
-    
-    $$SHORTCODE$$.initScript();
-
-    // Your code here...
-$if "$$STARTERCODE$$" == "HelloWorld"
-    alert("Hello World");
-$endif
-
-}
+crdtes.evalScript("$$DESPACED_TARGET_NAME$$_Main", $.fileName);

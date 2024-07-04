@@ -13,7 +13,7 @@ export JSXP_COMMANDS_DIR=`pwd`/
 xattr -dr com.apple.quarantine SparkerConfig.app
 xattr -dr com.apple.quarantine *.command
 
-cd ../devtools
+cd ../Developer
 
 xattr -dr com.apple.quarantine *.command
 

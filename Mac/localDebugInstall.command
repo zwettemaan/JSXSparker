@@ -57,7 +57,7 @@ else
             rm -rf "${TEMP_SCRIPT_RUNNER_NAME}"
             mkdir "${TEMP_SCRIPT_RUNNER_NAME}"
             cd "${TEMP_SCRIPT_RUNNER_NAME}"
-            unzip "${PROJECT_ROOT_DIR}devtools/RorohikoScriptRunner.*.zxp"
+            unzip "${PROJECT_ROOT_DIR}Developer/RorohikoScriptRunner.*.zxp"
         fi
 
         echo ""

@@ -69,7 +69,7 @@ IF NOT EXIST "%TARGET_APP_SCRIPT_DIR%" (
 
         IF NOT EXIST "%SCRIPT_RUNNER_NAME%" (
             RD /s /q "%TEMP_SCRIPT_RUNNER_NAME%" >NUL 2>&1
-            FOR %%Z IN ("%PROJECT_ROOT_DIR%devtools\RorohikoScriptRunner.*.zxp") DO COPY /Y "%%Z" "%TEMP%\RorohikoScriptRunner.zip" >NUL 2>&1
+            FOR %%Z IN ("%PROJECT_ROOT_DIR%Developer\RorohikoScriptRunner.*.zxp") DO COPY /Y "%%Z" "%TEMP%\RorohikoScriptRunner.zip" >NUL 2>&1
             Powershell -Command "Expand-Archive -LiteralPath '%TEMP%/RorohikoScriptRunner.zip' -DestinationPath '%EXTENSION_DIR%%TEMP_SCRIPT_RUNNER_NAME%'"
             DEL "%TEMP%\RorohikoScriptRunner.zip"
         )

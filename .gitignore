@@ -1,9 +1,11 @@
 .DS_Store
 /*.jsx
 /*.js
-/ReadMe for *.md
+/*.htm
+/ReadMe for *.txt
 /BuildSettings/
 /*_helpers/
 /VSCode/
 /.vscode/
-/*.htm
+/CreativeDeveloperTools_ES
+/CreativeDeveloperTools_ES.nzip
