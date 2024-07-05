@@ -60,8 +60,26 @@ IF NOT EXIST "%PROJECT_ROOT_DIR%BuildSettings%" (
             DEL "!DESPACED_TARGET_NAME!.htm"
         )
 
+        IF EXIST "!PRODUCT_CODE!.!PROJECT_VERSION!.tpkg" (
+            DEL "!PRODUCT_CODE!.!PROJECT_VERSION!.tpkg"
+        )
+
         IF EXIST "CreativeDeveloperTools_ES.nzip" (
             DEL "CreativeDeveloperTools_ES.nzip"
+        )
+
+        IF EXIST "Copy Sample Files with Documentation to Desktop.jsx" (
+            DEL "Copy Sample Files with Documentation to Desktop.jsx"
+        )
+
+        IF EXIST "SomeSampleFile.idml" (
+            DEL "SomeSampleFile.idml"
+        )
+
+        DEL "Developer\*.json" >NUL 2>&1
+
+        IF EXIST "manifest.json" (
+            DEL "manifest.json"
         )
 
         IF EXIST "ReadMe for !DESPACED_TARGET_NAME!.txt" (
@@ -81,11 +99,11 @@ IF NOT EXIST "%PROJECT_ROOT_DIR%BuildSettings%" (
         )
 
         IF EXIST ".vscode" (
-                RD /s /q .vscode >NUL 2>&1
+            RD /s /q .vscode >NUL 2>&1
         )
 
         IF EXIST "VSCode" (
-                RD /s /q VSCode >NUL 2>&1
+            RD /s /q VSCode >NUL 2>&1
         )
 
         ECHO.

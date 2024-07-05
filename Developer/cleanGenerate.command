@@ -52,9 +52,14 @@ else
         
         rm -f "${DESPACED_TARGET_NAME}.${TARGET_FILENAME_EXTENSION}"
         rm -f "${DESPACED_TARGET_NAME}_main.${TARGET_FILENAME_EXTENSION}"
+        rm -f "${PRODUCT_CODE}.${PRODUCT_VERSION}.tpkg"
         rm -f "${DESPACED_TARGET_NAME}.htm"
+        rm -f "Copy Sample Files with Documentation to Desktop.jsx"
+        rm -f "Developer/*.json"
         rm -f "ReadMe for ${DESPACED_TARGET_NAME}.txt"
         rm -f "CreativeDeveloperTools_ES.nzip"
+        rm -f "SomeSampleFile.idml"
+        rm -f "manifest.json"
         rm -rf "CreativeDeveloperTools_ES"
         rm -rf ${DESPACED_TARGET_NAME}_helpers
         rm -rf BuildSettings

@@ -67,19 +67,6 @@ else
 
         echo "//@include \"${PROJECT_ROOT_DIR}${DESPACED_TARGET_NAME}.${TARGET_FILENAME_EXTENSION}\"" > "${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.${TARGET_FILENAME_EXTENSION}"
 
-    elif [ "${TARGET_APP}" == "Dreamweaver" ]; then
-
-        # For Dreamweaver we link the .js and htm files into the Commands directory
-
-        echo ""
-        echo "Installing links to htm+js file for ${TARGET_APP}"
-        echo "Make sure to quit and restart ${TARGET_APP} to make the script appear in the menu." 
-        echo ""
-
-        ln -s "${PROJECT_ROOT_DIR}${DESPACED_TARGET_NAME}.${TARGET_FILENAME_EXTENSION}" "${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.${TARGET_FILENAME_EXTENSION}"
-        ln -s "${PROJECT_ROOT_DIR}${DESPACED_TARGET_NAME}.htm" "${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}.htm"
-        ln -s "${PROJECT_ROOT_DIR}${DESPACED_TARGET_NAME}_helpers" "${TARGET_APP_SCRIPT_DIR}${DESPACED_TARGET_NAME}_helpers"
-
     elif [ "${TARGET_APP}" == "Illustrator" -o "${TARGET_APP}" == "Photoshop" ]; then
 
         # For Illustrator and Photoshop we don't use a link; instead we use a one-line stub script

@@ -2,12 +2,7 @@
 // Tweakable Settings
 //
 
-// Don't use 'var $$SHORTCODE$$' - some engines call this within a non-global scope
-// if using var we end up defining this in the wrong scope
-
-if ("undefined" == typeof $$SHORTCODE$$) {
-    $$SHORTCODE$$ = {};
-}
+var $$SHORTCODE$$ = $.global.$$DESPACED_TARGET_NAME$$_NAMESPACE;
 
 if (! $$SHORTCODE$$.S) {
     $$SHORTCODE$$.S = {}; // stash global settings here

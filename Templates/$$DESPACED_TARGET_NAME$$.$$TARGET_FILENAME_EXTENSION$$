@@ -1,6 +1,10 @@
-﻿//@include "CreativeDeveloperTools_ES/crdtesDLLLoader.jsx"
+$include "targeting.ijs"
+//@include "CreativeDeveloperTools_ES/crdtesDLLLoader.jsx"
 //@include "CreativeDeveloperTools_ES/crdtes.jsx"
 
-CST.SCRIPT_ROOT_FOLDER = Folder($.fileName).parent;
+var $$SHORTCODE$$ = {};
+$.global.$$DESPACED_TARGET_NAME$$_NAMESPACE = $$SHORTCODE$$;
+$$SHORTCODE$$.MAIN_SCRIPT_FILE = File($.fileName);
+$$SHORTCODE$$.SCRIPT_ROOT_FOLDER = $$SHORTCODE$$.MAIN_SCRIPT_FILE.parent;
 
 crdtes.evalScript("$$DESPACED_TARGET_NAME$$_Main", $.fileName);

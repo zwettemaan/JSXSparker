@@ -1,9 +1,18 @@
-﻿$include "targeting.ijs"
-$if "$$TARGET_APP_SELECTED$$" != "Dreamweaver"
-//@include "$$DESPACED_TARGET_NAME$$_helpers/runtime.jsx"
+﻿var $$SHORTCODE$$ = $.global.$$DESPACED_TARGET_NAME$$_NAMESPACE;
+
+$$SHORTCODE$$.PRODUCT_CODE              = "$$PRODUCT_CODE$$";
+$$SHORTCODE$$.ISSUER                    = "$$DEVELOPER_GUID$$";
+$$SHORTCODE$$.ISSUER_EMAIL              = "$$DEVELOPER_EMAIL$$";
+$$SHORTCODE$$.DEVELOPER_ENCRYPTION_KEY  = "$$DEVELOPER_ENCRYPTION_KEY$$";
+
+$$SHORTCODE$$.DEVELOPER_DATA_KEY        = "$$DEVELOPER_DATA_KEY$$";
+$$SHORTCODE$$.DEVELOPER_DATA_PASSWORD   = "$$DEVELOPER_DATA_PASSWORD$$";
+
+TIGHTENER.setIssuer($$SHORTCODE$$.ISSUER, $$SHORTCODE$$.ISSUER_EMAIL);
+
+crdtes.evalScript("$$DESPACED_TARGET_NAME$$_helpers/runtime", $$SHORTCODE$$.MAIN_SCRIPT_FILE);
 
 main();
-$endif
 
 function main() {
     

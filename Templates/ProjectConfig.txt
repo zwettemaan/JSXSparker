@@ -21,10 +21,30 @@ HELP_ENABLE_LOG_ENTRY_EXIT="Add verbose tracing code for entry/exit into methods
 TARGET_APP="InDesign"
 HELP_TARGET_APP="The target Adobe application. See setTarget command file for 'Any' defaults."
 # List is not complete yet - in progress 
-SELECT_TARGET_APP="Any,Bridge,InCopy,InDesign,Illustrator,Photoshop,Dreamweaver,Premiere Pro"
+SELECT_TARGET_APP="Any,Bridge,InCopy,InDesign,Illustrator,Photoshop,Premiere Pro"
 
 # Still 'to do'
 # SELECT_TARGET_APP="After Effects,Prelude,Audition"
+
+# CRDT/PluginInstaller info
+
+DEVELOPER_GUID="0123456789abcdef0123456789abcdef"
+HELP_DEVELOPER_GUID="Your developer GUID as shown in PluginInstaller. Consult the Accounts window in Developer/Publisher. This should also match the Issuer GUID on the product License Info panel."
+
+DEVELOPER_EMAIL="your@email.abc"
+HELP_DEVELOPER_EMAIL="Your developer email address as set in PluginInstaller. Consult the Accounts window in Developer/Publisher mode in PluginInstaller."
+
+PRODUCT_CODE="JSXSparkerTest"
+HELP_PRODUCT_CODE="A PluginInstaller product code for your script. This should match the product code for the product in the Products window in Developer/Publisher mode"
+
+DEVELOPER_ENCRYPTION_KEY="SomeKey"
+HELP_DEVELOPER_ENCRYPTION_KEY="An PluginInstaller secret encryption key. This should match the Encryption Key for the product in the Products window in Developer/Publisher mode"
+
+DEVELOPER_DATA_KEY="SomeKey"
+HELP_DEVELOPER_DATA_KEY="A secret key used by your script code to store and retrieve local, user-inaccessible data by way of the crdtes.setPersistData/crdtes.getPersistData method."
+
+DEVELOPER_DATA_PASSWORD="SomePassword"
+HELP_DEVELOPER_DATA_PASSWORD="A secret password used by your script code to store and retrieve local, user-inaccessible data by way of the crdtes.setPersistData/crdtes.getPersistData method."
 
 TARGET_APP_CPU_WORD_SIZE="64"
 HELP_TARGET_APP_CPU_WORD_SIZE="CPU word size. Nearly always 64 bit."

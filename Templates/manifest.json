@@ -1,0 +1,70 @@
+{
+    "productCode": "$$PRODUCT_CODE$$",
+    "version": "$$PROJECT_VERSION$$",
+    "targets": [
+      {
+        "method": "STUB_SCRIPT_IN_INDESIGN_SCRIPTS_PANEL",
+        // Two files to put in Scripts panel
+        "stubScript": [ 
+          "$$DESPACED_TARGET_NAME$$.jsx",
+          "Copy Sample Files with Documentation to Desktop.jsx"  
+        ]
+      }
+    ],
+    "filters": [
+        // By default, sign and encrypt all .js and .jsx files
+        { 
+          "regExp": "/^.*\\.jsx?$/i",  
+          "sign": true,
+          "encrypt": true
+        },
+        // But only sign, don't encrypt
+        // - the .jsx files that need to go on the Scripts Panel
+        // - the sample .idml files
+        // - the .nzip file 
+        // - the ReadMe... file
+        { 
+          "regExp": "/^$$DESPACED_TARGET_NAME$$\\.jsx$/i",  
+          "sign": true,
+          "encrypt": false
+        },
+        { 
+          "regExp": "/^Copy Sample Files with Documentation to Desktop\\.jsx$/i",  
+          "sign": true,
+          "encrypt": false
+        },
+        { 
+          "regExp": "/^.*\\.idml$/i",  
+          "sign": true,
+          "encrypt": false
+        },
+        { 
+          "regExp": "/^ReadMe.*\\.txt$/i",  
+          "sign": true,
+          "encrypt": false
+        },
+        { 
+          "regExp": "/^CreativeDeveloperTools_ES\\.nzip$/i",  
+          "sign": true,
+          "encrypt": false
+        },
+        // Omit developer-only files: CreativeDeveloperTools_ES, any .tpkg file
+        // the Developer subfolder, and any invisible items (e.g. .git)
+        { 
+          "regExp": "/^CreativeDeveloperTools_ES\\/$/i",  
+          "omit": true
+        },
+        { 
+          "regExp": "/^.*\\.tpkg$/i",  
+          "omit": true
+        },
+        { 
+          "regExp": "/^Developer\\/$/i",  
+          "omit": true
+        },
+        { 
+          "regExp": "/^\\..*$/i",  
+          "omit": true
+        }
+    ]
+}

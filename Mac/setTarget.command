@@ -47,10 +47,6 @@ if [ "${TARGET_APP}" == "Photoshop" ]; then
     "${JSXP_COMMANDS_DIR}makeScriptsFolderAccessible.command" "${TARGET_APP_SCRIPT_DIR}"
 fi
 
-if [ "${TARGET_APP}" == "Dreamweaver" ]; then
-    "${JSXP_COMMANDS_DIR}makeScriptsFolderAccessible.command" "${TARGET_APP_SCRIPT_DIR}"
-fi
-
 if [ "${TARGET_APP_SCRIPT_DIR}" != "" -a "${TARGET_DIRNAME}" != "" ]; then
 
     export TARGET_SCRIPT_ROOT_DIR="${TARGET_APP_SCRIPT_DIR}${TARGET_DIRNAME}/"

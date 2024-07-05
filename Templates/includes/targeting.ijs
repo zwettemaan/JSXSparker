@@ -1,10 +1,8 @@
 ﻿$if "$$TARGET_APP_SELECTED$$" != "Any"
-$if "$$TARGET_APP$$" != "Dreamweaver"
 $if "$$TARGET_CC_VERSION_SELECTED$$" == "Any"
 //@target $$TARGET_APP_SPECIFIER$$
 $else
 //@target $$TARGET_APP_FULL_SPECIFIER$$
-$endif
 $endif
 
 $if "$$USE_PERSISTENT_ENGINE$$" == "ON"
